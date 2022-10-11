@@ -1,17 +1,12 @@
 import logo from './logo.svg';
 import './App.css';
-
-function record() {
-  alert('Se grabará la pantalla')
-}
+import RecordMenu from './components/RecordMenu';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <div>
-          <button onClick={record}>Hablar</button>
-        </div>
+        <RecordMenu></RecordMenu>
       </header>
     </div>
   );
