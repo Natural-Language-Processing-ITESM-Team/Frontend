@@ -104,30 +104,17 @@ const RecordMenu = () => {
   return (
     <Container sx={{ width: "25%", minWidth: 200 }}>
       <Stack spacing={1}>
-        <Box textAlign="center">
-          <Paper sx={{ height: 400 }}>hola</Paper>
+        <Box textAlign='center'>
+          <Paper sx={{ height: 400 }}>{status}</Paper>
         </Box>
         <Box textAlign="center">
           <div>
-            <p>{status}</p>
             <button onClick={startRecording}>Start Recording</button>
             <button onClick={stopRecordingHandler}>Stop Recording</button>
             {handleSubmission()}
-            <video src={mediaBlobUrl} controls autoPlay loop />
-            <p>
-              <a href={mediaBlobUrl} download={recordingName}>
-                Click to download
-              </a>
-            </p>
           </div>
         </Box>
       </Stack>
-      <div>
-        <input type="file" name="file" onChange={changeHandler} />
-        <div>
-          <button onClick={handleSubmission}>Submit</button>
-        </div>
-      </div>
     </Container>
   );
 };
