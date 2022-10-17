@@ -1,14 +1,26 @@
-import { Button, ButtonGroup , Paper} from '@mui/material'
+import {Paper} from '@mui/material'
 import { Box, Container, Stack } from '@mui/system';
 import '../style/RecordMenu.css'
 import axios from "axios";
 import React, {useState} from 'react';
+import { useReactMediaRecorder } from 'react-media-recorder';
+
+
 
 
 const RecordMenu = () => {
 
     const [selectedFile, setSelectedFile] = useState();
   	const [isFilePicked, setIsFilePicked] = useState(false);
+    const [recordingName, setRecordingName] = useState(0);
+    const { status, startRecording, stopRecording, mediaBlobUrl } =
+    useReactMediaRecorder({ audio: true });
+
+  const stopRecordingHandler = () => {
+    const currentTimeSatmp = new Date().getTime();
+    setRecordingName(currentTimeSatmp);
+    return stopRecording();
+  }
 
     const changeHandler = (event) => {
         setSelectedFile(event.target.files[0]);
@@ -16,7 +28,7 @@ const RecordMenu = () => {
     }
 
     const handleSubmission = () => {
-        // I upload the audio file into amazon S3 bucket.
+        // upload the audio file into amazon S3 bucket.
         const form = new FormData();
         
         const keyPrefix = "transcribe/"
@@ -62,7 +74,6 @@ const RecordMenu = () => {
           });
     }
 
-
     return (
             <Container sx={{ width: '25%' , minWidth: 200}}>
                 <Stack spacing={1}>
@@ -70,10 +81,13 @@ const RecordMenu = () => {
                         <Paper sx={{ height: 400 }}>hola</Paper>
                     </Box>
                     <Box textAlign='center'>
-                            <ButtonGroup variant="contained">
-                                <Button >Hablar</Button>
-                                <Button>Detener</Button>
-                            </ButtonGroup>
+                    <div>
+                      <p>{status}</p>
+                      <button onClick={startRecording}>Start Recording</button>
+                      <button onClick={stopRecordingHandler}>Stop Recording</button>
+                      <video src={mediaBlobUrl} controls autoPlay loop />
+                      <p><a href={mediaBlobUrl} download={recordingName}>Click to download</a></p>
+                    </div>
                     </Box>
                 </Stack>
                 <div>
