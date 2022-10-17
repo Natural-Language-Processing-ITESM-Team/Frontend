@@ -86,7 +86,9 @@ const RecordMenu = () => {
                   console.log("La transcripción es ");
                   console.log(response);
                   if( 'messages' in response['data']) {
-                    message = response['data']['messages'][0]['content']
+                    setMessage(response['data']['messages'][0]['content']);
+                  } else {
+                    setMessage('I didnt understand');
                   }
 
                 })
