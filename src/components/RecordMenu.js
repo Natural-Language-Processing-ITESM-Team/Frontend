@@ -8,6 +8,7 @@ import { useReactMediaRecorder } from "react-media-recorder";
 const RecordMenu = () => {
   const [selectedFile, setSelectedFile] = useState();
   const [isFilePicked, setIsFilePicked] = useState(false);
+  const [message, setMessage] = useState('-');
   const [recordingName, setRecordingName] = useState(0);
   const { status, startRecording, stopRecording, mediaBlobUrl } =
     useReactMediaRecorder({ audio: true,
@@ -84,6 +85,10 @@ const RecordMenu = () => {
                   console.log("He recibido respuesta de getTranscription");
                   console.log("La transcripción es ");
                   console.log(response);
+                  if( 'messages' in response['data']) {
+                    message = response['data']['messages'][0]['content']
+                  }
+
                 })
                 .catch(function (response) {
                   console.log("error when calling getTranscription");
@@ -104,11 +109,12 @@ const RecordMenu = () => {
   return (
     <Container sx={{ width: "25%", minWidth: 200 }}>
       <Stack spacing={1}>
-        <Box textAlign='center'>
-          <Paper sx={{ height: 400 }}>{status}</Paper>
-        </Box>
+        <div className="chat">
+          <p>{message}</p>
+        </div>
         <Box textAlign="center">
           <div>
+            <p>{status}</p>
             <button onClick={startRecording}>Start Recording</button>
             <button onClick={stopRecordingHandler}>Stop Recording</button>
             {handleSubmission()}
