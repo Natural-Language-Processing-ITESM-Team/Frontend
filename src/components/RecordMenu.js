@@ -1,23 +1,34 @@
-import { Paper } from "@mui/material";
-import { Box, Container, Stack } from "@mui/system";
+import { border, Box, Container, Stack } from "@mui/system";
 import "../style/RecordMenu.css";
 import axios from "axios";
 import React, { useState } from "react";
 import { useReactMediaRecorder } from "react-media-recorder";
+import { FaUser } from "react-icons/fa";
+import { CiMicrophoneOn } from 'react-icons/ci'
+import { BsStop } from 'react-icons/bs'
 
 const RecordMenu = () => {
+  const botname = '';
   const [selectedFile, setSelectedFile] = useState();
   const [isFilePicked, setIsFilePicked] = useState(false);
-  const [message, setMessage] = useState('-');
+  const [message, setMessage] = useState('- Hi my name is '+botname+', how can I help you?');
   const [recordingName, setRecordingName] = useState(0);
+  const [isRecording, setIsRecording] = useState(false);
   const { status, startRecording, stopRecording, mediaBlobUrl } =
     useReactMediaRecorder({ audio: true,
                             blobOptions: { type: 'audio/webm' },}, );
 
-  const stopRecordingHandler = () => {
-    const currentTimeSatmp = new Date().getTime();
-    setRecordingName(currentTimeSatmp);
-    return stopRecording();
+  const handleRecordingClick = () => {
+    if(status === 'idle' || status === 'stopped') {
+      startRecording();
+      setIsRecording(true);
+    } else {
+      const currentTimeSatmp = new Date().getTime();
+      setRecordingName(currentTimeSatmp);
+      stopRecording();
+      setIsRecording(false);
+      handleSubmission();
+    }
   };
 
   const changeHandler = (event) => {
@@ -109,17 +120,19 @@ const RecordMenu = () => {
   };
 
   return (
-    <Container sx={{ width: "25%", minWidth: 200 }}>
-      <Stack spacing={1}>
+    <Container>
+      <Stack spacing={1} className='chatbox'>
+        <div className="topbar">
+          <FaUser/> Assistance
+        </div>
         <div className="chat">
           <p>{message}</p>
         </div>
         <Box textAlign="center">
           <div>
-            <p>{status}</p>
-            <button onClick={startRecording}>Start Recording</button>
-            <button onClick={stopRecordingHandler}>Stop Recording</button>
-            {handleSubmission()}
+            { isRecording ? 
+              <button className="stop-recording" onClick={handleRecordingClick}><BsStop/>Stop Recording</button>:
+              <button className="start-recording" onClick={handleRecordingClick}><CiMicrophoneOn/>Start Recording</button> }
           </div>
         </Box>
       </Stack>
