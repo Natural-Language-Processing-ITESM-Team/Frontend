@@ -1,11 +1,13 @@
-import { border, Box, Container, Stack } from "@mui/system";
-import "../style/RecordMenu.css";
+import { Container, Stack } from "@mui/system";
+import "../style/RecordMenu.css"; 
 import axios from "axios";
 import React, { useState } from "react";
 import { useReactMediaRecorder } from "react-media-recorder";
 import { FaUser } from "react-icons/fa";
 import { CiMicrophoneOn } from 'react-icons/ci'
 import { BsStop } from 'react-icons/bs'
+import SpinningCircles from "react-loading-icons/dist/esm/components/spinning-circles";
+import TailSpin from "react-loading-icons/dist/esm/components/tail-spin";
 
 const RecordMenu = () => {
   const botname = '';
@@ -14,6 +16,7 @@ const RecordMenu = () => {
   const [message, setMessage] = useState('- Hi my name is '+botname+', how can I help you?');
   const [recordingName, setRecordingName] = useState(0);
   const [isRecording, setIsRecording] = useState(false);
+  const [waitingForResponse, setWaitingForResponse] = useState(false);
   const { status, startRecording, stopRecording, mediaBlobUrl } =
     useReactMediaRecorder({ audio: true,
                             blobOptions: { type: 'audio/webm' },}, );
@@ -42,6 +45,7 @@ const RecordMenu = () => {
       console.log("recording undefined");
       return;
     } else {
+      setWaitingForResponse(true);
 
       fetch(mediaBlobUrl)
         .then((res) => res.blob())
@@ -93,6 +97,7 @@ const RecordMenu = () => {
                 },
               })
                 .then(function (response) {
+                  setWaitingForResponse(false);
                   console.log("He recibido respuesta de getTranscription");
                   console.log("La transcripción es ");
                   console.log(response);
@@ -104,6 +109,7 @@ const RecordMenu = () => {
 
                 })
                 .catch(function (response) {
+                  setWaitingForResponse(false);
                   console.log("error when calling getTranscription");
                   console.log(response);
                 });
@@ -111,6 +117,7 @@ const RecordMenu = () => {
 
         })
         .catch(function (response) {
+          setWaitingForResponse(false);
           console.log("error al crear archivo de mediaBlob");
           console.log(response);
         });
@@ -127,14 +134,17 @@ const RecordMenu = () => {
         </div>
         <div className="chat">
           <p>{message}</p>
-        </div>
-        <Box textAlign="center">
-          <div>
-            { isRecording ? 
-              <button className="stop-recording" onClick={handleRecordingClick}><BsStop/>Stop Recording</button>:
-              <button className="start-recording" onClick={handleRecordingClick}><CiMicrophoneOn/>Start Recording</button> }
+          <div className="loading-icon">
+          { waitingForResponse ? <TailSpin stroke="#6390ff"/>:<div></div>}
           </div>
-        </Box>
+        </div>
+        <div class='flex-container'>
+          <div className="button-holder">
+          { isRecording ? 
+            <button className="stop-recording" onClick={handleRecordingClick}><BsStop/>Stop Recording</button>:
+            <button className="start-recording" onClick={handleRecordingClick}><CiMicrophoneOn/>Start Recording</button> }
+          </div>
+        </div>
       </Stack>
     </Container>
   );

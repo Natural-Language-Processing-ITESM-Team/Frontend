@@ -4,7 +4,7 @@
     background-color: lightgray;
     border-radius: 5px;
     padding: 10px;
-    min-width: 300px;
+    min-width: 200px;
     width: 30vw;
     margin: auto;
 }
@@ -16,11 +16,13 @@
 }
 
 .chat {
+    display: flex;
     padding: 5px;
     background-color: whitesmoke;
     color: black;
     height: 200px;
     font-size: medium;
+    flex-direction: column;
 }
 
 button{
@@ -56,3 +58,16 @@ button:active {
     background-color: #D34C38;
 }
 
+.flex-container {
+    display: flex;
+    justify-content: center;
+}
+
+.button-holder {
+    align-self: center;
+}
+
+.loading-icon {
+    margin-top: auto;
+    align-self: center;
+}
