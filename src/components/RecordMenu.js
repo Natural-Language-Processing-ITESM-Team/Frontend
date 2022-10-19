@@ -29,9 +29,8 @@ const RecordMenu = () => {
     } else {
       const currentTimeSatmp = new Date().getTime();
       setRecordingName(currentTimeSatmp);
-      stopRecording();
       setIsRecording(false);
-      handleSubmission();
+      stopRecording();
     }
   };
 
@@ -136,10 +135,10 @@ const RecordMenu = () => {
           { waitingForResponse ? <TailSpin stroke="#6390ff"/>:<div></div>}
           </div>
         </div>
-        <div class='flex-container'>
+        <div className='flex-container'>
           <div className="button-holder">
           { isRecording ? 
-            <button className="stop-recording" onClick={handleRecordingClick}><BsStop/>Stop Recording</button>:
+            <button className="stop-recording" onClick={() => {handleRecordingClick(); handleSubmission()}}><BsStop/>Stop Recording</button>:
             <button className="start-recording" onClick={handleRecordingClick}><CiMicrophoneOn/>Start Recording</button> }
           </div>
         </div>
