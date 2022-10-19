@@ -11,7 +11,7 @@ import TailSpin from "react-loading-icons/dist/esm/components/tail-spin";
 
 const RecordMenu = () => {
   const botname = '';
-  const audio = new Audio();
+  var audio = new Audio();
   const [selectedFile, setSelectedFile] = useState();
   const [isFilePicked, setIsFilePicked] = useState(false);
   const [message, setMessage] = useState('- Hi my name is '+botname+', how can I help you?');
@@ -102,7 +102,7 @@ const RecordMenu = () => {
                   console.log("He recibido respuesta de getTranscription");
                   console.log("La transcripción es ");
                   console.log(response);
-                  audio = new Audio(response);
+                  audio = new Audio(response['data']);
                   audio.play()
 
                 })
