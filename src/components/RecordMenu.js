@@ -12,34 +12,34 @@ import TailSpin from "react-loading-icons/dist/esm/components/tail-spin";
 const RecordMenu = () => {
   const botname = '';
   var audio = new Audio();
-  const [selectedFile, setSelectedFile] = useState();
-  const [isFilePicked, setIsFilePicked] = useState(false);
   const [message, setMessage] = useState('- Hi my name is '+botname+', how can I help you?');
   const [recordingName, setRecordingName] = useState(0);
   const [isRecording, setIsRecording] = useState(false);
   const [waitingForResponse, setWaitingForResponse] = useState(false);
   const { status, startRecording, stopRecording, mediaBlobUrl, clearBlobUrl} =
     useReactMediaRecorder({ audio: true,
-                            blobOptions: { type: 'audio/webm' },}, );
+                            blobOptions: { type: 'audio/webm' },
+                            onStop: (blobUrl, blob) => {handleSubmission(blobUrl)}}, );
 
   const handleRecordingClick = () => {
+    console.log("status is");
+    console.log(status);
     if(status === 'idle' || status === 'stopped') {
       startRecording();
       setIsRecording(true);
+      //clearBlobUrl();
     } else {
       const currentTimeSatmp = new Date().getTime();
+      
       setRecordingName(currentTimeSatmp);
       setIsRecording(false);
-      return stopRecording();
+      stopRecording();
+    
     }
   };
 
-  const changeHandler = (event) => {
-    setSelectedFile(event.target.files[0]);
-    setIsFilePicked(true);
-  };
 
-  const handleSubmission = () => {
+  const handleSubmission = (blobUrl) => {
     
     //while (mediaBlobUrl == undefined) {
       // wait for recording to stop.
@@ -50,9 +50,18 @@ const RecordMenu = () => {
     //}
     
     
-    setWaitingForResponse(true);
 
-    fetch(mediaBlobUrl)
+    //setWaitingForResponse(true);
+
+    //console.log("blob is")
+    //console.log(mediaBlobUrl);
+    //if (mediaBlobUrl == undefined) {
+    //  return;
+    //}
+
+    
+
+    fetch(blobUrl)
       .then((res) => res.blob())
       .then((mediaBlob) => {
 
@@ -129,6 +138,7 @@ const RecordMenu = () => {
     
   };
 
+
   return (
     <Container>
       <Stack spacing={1} className='chatbox'>
@@ -144,7 +154,11 @@ const RecordMenu = () => {
         <div className='flex-container'>
           <div className="button-holder">
           { isRecording ? 
-            <button className="stop-recording" onClick={() => {handleRecordingClick(); handleSubmission()}}><BsStop/>Stop Recording</button>:
+            <button className="stop-recording" onClick={() => {
+              handleRecordingClick();
+              //handleSubmission();
+              return;
+            }}><BsStop/>Stop Recording</button>:
             <button className="start-recording" onClick={handleRecordingClick}><CiMicrophoneOn/>Start Recording</button> }
           </div>
         </div>
