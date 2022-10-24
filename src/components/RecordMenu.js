@@ -140,10 +140,10 @@ const RecordMenu = () => {
 
 
   return (
-    <Container>
+    <div className='container'>
       <Stack spacing={1} className='chatbox'>
         <div className="topbar">
-          <FaUser/> Assistance
+          <FaUser/> Asistencia
         </div>
         <div className="chat">
           <p>{message}</p>
@@ -158,12 +158,12 @@ const RecordMenu = () => {
               handleRecordingClick();
               //handleSubmission();
               return;
-            }}><BsStop/>Stop Recording</button>:
-            <button className="start-recording" onClick={handleRecordingClick}><CiMicrophoneOn/>Start Recording</button> }
+            }}><BsStop/>Dejar de Grabar</button>:
+            <button className="start-recording" onClick={handleRecordingClick}><CiMicrophoneOn/>Responder</button> }
           </div>
         </div>
       </Stack>
-    </Container>
+    </div>
   );
 };
 

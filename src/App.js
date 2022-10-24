@@ -1,12 +1,12 @@
 import './App.css';
+import NavBar from './components/NavBar';
 import RecordMenu from './components/RecordMenu';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <RecordMenu></RecordMenu>
-      </header>
+          <NavBar></NavBar>
+          <RecordMenu></RecordMenu>
     </div>
   );
 }

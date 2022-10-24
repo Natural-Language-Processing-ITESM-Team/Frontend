@@ -1,24 +1,26 @@
-
+.container{
+    margin: auto;
+}
 
 .chatbox {
-    background-color: lightgray;
+    background-color: #d9d9d9;
     border-radius: 5px;
     padding: 10px;
     min-width: 200px;
     width: 30vw;
-    margin: auto;
+
 }
 
 .topbar{
     text-align: center;
-    color: black;
     font-weight: bold;
+    color: #000;
 }
 
 .chat {
     display: flex;
     padding: 5px;
-    background-color: whitesmoke;
+    background-color: white;
     color: black;
     height: 200px;
     font-size: medium;
