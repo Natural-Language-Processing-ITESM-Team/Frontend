@@ -1,0 +1,28 @@
+<div class="content">
+            <div class="full-chat-block">
+                <div class="outer-container">
+                    <div class="chat-container">
+                       <div id="chatbox">
+                            <h5 id="chat-timestamp"></h5>
+                            <p id="botStarterMessage" class="botText"><span>Loading...</span></p>
+                       </div>
+
+                       <div class="chat-bar-input-block">
+                            <div id="userInput">
+                                <input type="text" name="msg" id="textInput" class="input-box" placeholder="Presiona Enter para enviar un mensaje.">
+                                <p></p>
+                            </div>
+                            <div class="chat-bar-icons">
+                                <i id="chat-icon" style="color: black;" class="fa-solid fa-paper-plane" onclick="sendButton()"></i>
+                                <i id="chat-icon" style="color: black;" class="fa-solid fa-pmicrophone" onclick="recordButton()"></i>
+                            </div>
+                       </div>
+
+                       <div id="chat-bar-bottom">
+                        <p></p>
+                       </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>

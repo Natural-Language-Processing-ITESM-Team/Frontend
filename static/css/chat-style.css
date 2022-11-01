@@ -1,0 +1,331 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+}
+
+html{
+    font-family: Manifold,sans-serif;
+    scroll-behavior: smooth;
+  }
+  
+  
+
+  @media screen and (max-width:1920px){
+    html{font-size:.9333333333vw}
+  }
+  
+  @media screen and (max-width:1440px){
+    html{font-size:1.1111111111vw}
+  }
+  
+  @media screen and (max-width:1080px){
+    html{font-size:1.1111111111vw}
+  }
+  
+  @media screen and (max-width:576px){
+    html{font-size:4.1025641026vw}
+  }
+  
+  :root{
+    --color-white:#fff;
+    --color-blue-light:#1eacda;
+    --color-blue:#126e95;
+    --color-blue-dark:#05121f;
+    --spacing-1:1px;
+    --spacing-84:5.25rem;
+    --font-size-14:0.875rem;
+    --font-size-16:1rem;
+    --font-size-18:1.125rem;
+    --font-size-20:1.25rem;
+    --font-size-22:1.375rem;
+    --font-size-24:1.5rem;
+    --font-size-26:1.625rem;
+    --font-size-32:2rem;
+    --font-size-36:2.25rem;
+    --font-size-38:2.375rem;
+    --font-size-40:2.5rem;
+    --font-size-54:3.375rem;
+    --font-size-61:3.8125rem;
+    --font-size-64:4rem;
+    --font-size-144:9rem
+  }
+  
+  @font-face{
+    font-family:Azonix;
+    src:url(../fonts/Azonix.cdfe47b3.otf) format("truetype");
+    font-style:normal;
+    font-weight:300
+  }
+  
+  @font-face{
+    font-family:Manifold;
+    src:url(../fonts/Fontspring-DEMO-manifoldextendedcf-medium.98e5d531.otf) format("truetype");
+    font-style:normal;
+    font-weight:400
+  }
+  
+  @font-face{
+    font-family:PlusJakartaDisplay;
+    src:url(../fonts/PlusJakartaDisplay-Light.c54e8a0e.otf) format("truetype");
+    font-style:normal;
+    font-weight:300
+  }
+  
+  @font-face{
+    font-family:PlusJakartaDisplay;
+    src:url(../fonts/PlusJakartaDisplay-Regular.a81ce9b4.otf) format("truetype");
+    font-style:normal;
+    font-weight:400
+  }
+  
+  @font-face{
+    font-family:PlusJakartaDisplay;
+    src:url(../fonts/PlusJakartaDisplay-Medium.1f27f846.otf) format("truetype");
+    font-style:normal;
+    font-weight:500
+  }
+  
+  @font-face{
+    font-family:PlusJakartaDisplay;
+    src:url(../fonts/PlusJakartaDisplay-Bold.1e5642fd.otf) format("truetype");
+    font-style:normal;
+    font-weight:700
+  }
+
+  @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
+.main{
+    background-color: #05121f;
+    background-image: url(../img/blur-2.13723007.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 100vh;
+    max-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-header{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 2rem 4rem;
+    background: linear-gradient(180deg,#05121f 25%,rgba(5,18,31,.75) 55%,rgba(5,18,31,0) 90%);
+    top: 0;
+    left: 0;
+    transition: opacity .3s ease;
+}
+
+.main-header .logo img{
+    width: 5.375rem;
+    height: auto;
+}
+
+.main-header .links{
+    font-family: Manifold,sans-serif;
+    font-weight: 400;
+    letter-spacing: .1em;
+    font-size: 1rem;
+    margin-left: 5.25rem;
+    margin-right: auto;
+}
+
+.main-header a{
+    color: #FFF;
+    text-decoration: none;
+}
+
+.main-header .button{
+    padding: 1.25rem 3.125rem;
+    border: 1px solid #fff;
+    transition: background-color .3s ease, color .3s ease;
+}
+
+.main-header .button:hover{
+    background-color:#fff;
+    color:#05121f;
+}
+
+.chat-bar-collapsible{
+    margin-top: 50px;
+}
+
+.collapsible {
+    background-color:#1eacda;
+    background-image:linear-gradient(93.77deg,#1eacda -14.61%,#15789b 86.26%,#0e4e65 106.26%);
+    color: white;
+    text-align: center;
+    padding: 18px;
+    width: 350px;
+    outline: none;
+    font-size: 18px;
+    border-radius: 10px 10px 0px 0px;
+    border: 3px solid white;
+    border-bottom: none;
+}
+
+.full-chat-block {
+    width: 350px;
+    background: white;
+    text-align: center;
+    overflow: auto;
+    scrollbar-width: none;
+    height: max-content;
+    transition: max-height 0.2s ease-out;
+    border-radius: 0 0 10px 10px;
+}
+
+.full-chat-block::-webkit-scrollbar{
+    display: none;
+}
+
+.outer-container {
+    min-height: 500px;
+    bottom: 0%;
+    position: relative;
+}
+
+.chat-container {
+    max-height: 500px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    scroll-behavior: smooth;
+    hyphens: auto;
+}
+
+.chat-container::-webkit-scrollbar {
+    display: none;
+}
+
+.chat-bar-input-block {
+    display: flex;
+    float: left;
+    box-sizing: border-box;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+    background-color: rgb(235, 235, 235);
+    border-radius: 10px 10px 0px 0px;
+    padding: 10px 0px 10px 10px;
+}
+
+.chat-bar-icons {
+    display: flex;
+    justify-content: space-evenly;
+    box-sizing: border-box;
+    width: 25%;
+    float: right;
+    font-size: 20px;
+}
+
+#chat-timestamp{
+    font-family: 'Nunito', sans-serif;
+    margin: 10px 0 5px 0;
+}
+
+#chat-icon:hover {
+    opacity: .7;
+}
+
+#userInput {
+    width: 75%;
+}
+
+.input-box {
+    float: left;
+    border: none;
+    box-sizing: border-box;
+    width: 100%;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 16px;
+    color: #000;
+    background-color: white;
+    outline: none
+}
+
+.userText {
+    color: #000;
+    font-family: Helvetica;
+    font-size: 16px;
+    font-weight: normal;
+    text-align: right;
+    clear: both;
+}
+
+.userText span {
+    line-height: 1.5em;
+    margin: 5px 0 5px 0;
+    display: inline-block;
+    background: #f4f4f4;
+    padding: 10px;
+    border-radius: 8px;
+    border-bottom-right-radius: 2px;
+    max-width: 80%;
+    margin-right: 10px;
+    animation: floatup .5s forwards
+}
+
+.botText {
+    color: #FFF;
+    font-family: 'Nunito', sans-serif;
+    font-weight: normal;
+    font-size: 16px;
+    text-align: left;
+}
+
+.botText span {
+    line-height: 1.5em;
+    margin: 5px 0 5px 0;
+    display: inline-block;
+    background-color:#1eacda;
+    background-image: linear-gradient(93.77deg,#1eacda -14.61%,#15789b 86.26%,#0e4e65 106.26%);
+    padding: 10px;
+    border-radius: 8px;
+    border-bottom-left-radius: 2px;
+    max-width: 80%;
+    margin-left: 10px;
+    animation: floatup .5s forwards
+}
+
+@keyframes floatup {
+    from {
+        transform: translateY(14px);
+        opacity: .0;
+    }
+    to {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+
+@media screen and (max-width:600px) {
+    .full-chat-block {
+        width: 100%;
+        border-radius: 0px;
+    }
+    .chat-bar-collapsible {
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        width: 100%;
+    }
+    .collapsible {
+        width: 100%;
+        border: 0px;
+        border-top: 3px solid white;
+        border-radius: 0px;
+    }
+}

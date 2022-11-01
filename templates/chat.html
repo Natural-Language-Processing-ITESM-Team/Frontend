@@ -1,0 +1,73 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Project Hera &dash; Chat Now!</title>
+    <link rel="stylesheet" href="{% static '/css/chat-style.css' %}">
+    <link rel="icon" href="{% static '/img/Hera-logo.png' %}">
+    <script src="https://kit.fontawesome.com/175dbced17.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="main">
+
+        <!-- Header -->
+
+        <div class="main-header">
+            <div class="logo">
+                <a href="/"><img src="{% static '/img/Hera-logo.png' %}" alt=""></a>
+            </div>
+            <div class="links"></div>
+            <a href="repo" class="button">Repositorio</a>
+        </div>
+
+        <!-- Header -->
+
+        <div class="chat-bar-collapsible">
+            <h5 class="collapsible">HERA</h5>
+    
+            <div class="content">
+                <div class="full-chat-block">
+                    <!-- Message Container -->
+                    <div class="outer-container">
+                        <div class="chat-container">
+                            <!-- Messages -->
+                            <div id="chatbox">
+                                <h5 id="chat-timestamp"></h5>
+                                <p id="botStarterMessage" class="botText"><span>Loading...</span></p>
+                            </div>
+    
+                            <!-- User input box -->
+                            <div class="chat-bar-input-block">
+                                <div id="userInput">
+                                    {% csrf_token %}
+                                    <input id="textInput" class="input-box" type="text" name="msg"
+                                        placeholder="Tap 'Enter' to send a message">
+                                    <p></p>
+                                </div>
+    
+                                <div class="chat-bar-icons">
+                                    <i id="chat-icon" style="color: #333;" class="fa fa-fw fa-send"
+                                    onclick="sendButton()"></i>
+                                    <i id="chat-icon" style="color: #333;" class="fa fa-fw fa-microphone"
+                                        onclick="recordButton()"></i>
+                                </div>
+                            </div>
+    
+                            <div id="chat-bar-bottom">
+                                <p></p>
+                            </div>
+    
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    <script src="{% static '/js/chatbot.js' %}"></script>
+</body>
+</html>
