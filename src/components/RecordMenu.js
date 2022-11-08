@@ -10,9 +10,9 @@ import SpinningCircles from "react-loading-icons/dist/esm/components/spinning-ci
 import TailSpin from "react-loading-icons/dist/esm/components/tail-spin";
 
 const RecordMenu = () => {
-  const botname = '';
+  const botname = 'Hera';
   var audio = new Audio();
-  const [message, setMessage] = useState('- Hi my name is '+botname+', how can I help you?');
+  const [message, setMessage] = useState('- Hola mi nombre es\n'+botname+', cómo te puedo ayudar?');
   const [recordingName, setRecordingName] = useState(0);
   const [isRecording, setIsRecording] = useState(false);
   const [waitingForResponse, setWaitingForResponse] = useState(false);
@@ -65,6 +65,8 @@ const RecordMenu = () => {
       .then((res) => res.blob())
       .then((mediaBlob) => {
 
+        setWaitingForResponse(true);
+
         const myFile = new File([mediaBlob], "demo.webm", {
           type: "audio/webm",
         });
@@ -115,7 +117,8 @@ const RecordMenu = () => {
                 console.log("He recibido respuesta de getTranscription");
                 console.log("La transcripción es ");
                 console.log(response);
-                audio = new Audio(response['data']);
+                audio = new Audio(response['data']['link']);
+                setMessage('- '+response['data']['text'])
                 audio.play()
                 clearBlobUrl();
 
