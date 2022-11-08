@@ -86,7 +86,7 @@ const RecordMenu = () => {
             // The file key I know it, it's stored in localStorage.get("key")
             axios({
               method: "post",
-              url: "http://localhost:8000/getTranscription", // Change to REAL SERVER ADDRESS.
+              url: "http://107.21.53.64:8000/getTranscription", // Change to REAL SERVER ADDRESS.
               data: toGoJson,
               headers: {
                 "Content-Type": "application/json",
