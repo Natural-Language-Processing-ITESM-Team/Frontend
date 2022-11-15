@@ -10,9 +10,9 @@ import SpinningCircles from "react-loading-icons/dist/esm/components/spinning-ci
 import TailSpin from "react-loading-icons/dist/esm/components/tail-spin";
 
 const RecordMenu = () => {
-  const botname = '';
+  const botname = 'Hera';
   var audio = new Audio();
-  const [message, setMessage] = useState('- Hi my name is '+botname+', how can I help you?');
+  const [message, setMessage] = useState('- Hola mi nombre es\n'+botname+', cómo te puedo ayudar?');
   const [recordingName, setRecordingName] = useState(0);
   const [isRecording, setIsRecording] = useState(false);
   const [waitingForResponse, setWaitingForResponse] = useState(false);
@@ -40,30 +40,12 @@ const RecordMenu = () => {
 
 
   const handleSubmission = (blobUrl) => {
-    
-    //while (mediaBlobUrl == undefined) {
-      // wait for recording to stop.
-      /*setTimeout(() => {
-        console.log("recording undefined");
-      }, 5000);*/
-      //console.log("--------")
-    //}
-    
-    
-
-    //setWaitingForResponse(true);
-
-    //console.log("blob is")
-    //console.log(mediaBlobUrl);
-    //if (mediaBlobUrl == undefined) {
-    //  return;
-    //}
-
-    
 
     fetch(blobUrl)
       .then((res) => res.blob())
       .then((mediaBlob) => {
+
+        setWaitingForResponse(true);
 
         const myFile = new File([mediaBlob], "demo.webm", {
           type: "audio/webm",
@@ -96,15 +78,16 @@ const RecordMenu = () => {
             console.log(
               "La solicitud se procesó exitosamente pero no hay response por eso se manda error 204."
             );
-            //console.log(response);
             
-            const keyJson = JSON.stringify({ key: localStorage.getItem("key") });
+
+            // TODO SEND THE CHOSEN STT MEASURE TO DECIDE WHICH SERVICE.
+            const toGoJson = JSON.stringify({ key: localStorage.getItem("key"), sttMeasure: STTMeasure});
             // I call backend to decide which transcribe service to use.
             // The file key I know it, it's stored in localStorage.get("key")
             axios({
               method: "post",
-              url: "http://localhost:8000/getTranscription", // Change to REAL SERVER ADDRESS.
-              data: keyJson,
+              url: "http://107.21.53.64:8000/getTranscription", // Change to REAL SERVER ADDRESS.
+              data: toGoJson,
               headers: {
                 "Content-Type": "application/json",
                 "Access-Control-Allow-Origin": "*",
@@ -115,7 +98,8 @@ const RecordMenu = () => {
                 console.log("He recibido respuesta de getTranscription");
                 console.log("La transcripción es ");
                 console.log(response);
-                audio = new Audio(response['data']);
+                audio = new Audio(response['data']['link']);
+                setMessage('- '+response['data']['text'])
                 audio.play()
                 clearBlobUrl();
 
@@ -132,15 +116,33 @@ const RecordMenu = () => {
         setWaitingForResponse(false);
         console.log("error al crear archivo de mediaBlob");
         console.log(response);
-      });
-  
-
-    
+      });    
   };
 
+  // Initial state
+  const getInitialState = () => {
+    const STTMeasure = "Latencia";
+    return STTMeasure;
+  };
+
+  const [STTMeasure, setSTTMeasure] = useState(getInitialState);
+
+  const handleChange = (e) => {
+    setSTTMeasure(e.target.value);
+  };
 
   return (
-    <div className='container'>
+
+
+      <div className='container'>
+
+        <p>{`Por favor seleccione una opción para determinar su servicio de voz a texto.`}</p>
+        <select value={STTMeasure} onChange={handleChange}>
+          <option value="Latencia">Latencia</option>
+          <option value="Exactitud">Exactitud</option>
+          <option value="Costo">Costo</option>
+        </select>
+
       <Stack spacing={1} className='chatbox'>
         <div className="topbar">
           <FaUser/> Asistencia
