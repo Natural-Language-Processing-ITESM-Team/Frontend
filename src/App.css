@@ -104,6 +104,10 @@ section{
   color: #000;
 }
 
+.light-theme .header a{
+  color: #000;
+}
+
 .light-theme a{
   color: #fff;
 }
