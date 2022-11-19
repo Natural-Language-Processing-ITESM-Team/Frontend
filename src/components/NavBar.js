@@ -1,11 +1,12 @@
-import "../style/NavBar.css"
+import React from "react";
 
-const NavBar = () => {
+export const NavBar = () => {
     return(
-        <div className="bar">
-            <img src={require('../img/tecserviceslogowhite.png')} className='logo' alt=""/>
-            {/* <div className='moreInfo'>Más información</div> */}
+        <div className="navbar">
+            <span className="logo">Project Hera</span>
+            <div className="user">
+                <span>Chatea Ahora</span>
+            </div>
         </div>
     )
 }
-export default NavBar;

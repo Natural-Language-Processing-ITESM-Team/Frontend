@@ -8,6 +8,9 @@ import { CiMicrophoneOn } from 'react-icons/ci'
 import { BsStop } from 'react-icons/bs'
 import SpinningCircles from "react-loading-icons/dist/esm/components/spinning-circles";
 import TailSpin from "react-loading-icons/dist/esm/components/tail-spin";
+import { Header } from "./header";
+import { Footer } from "./footer";
+import { Chat } from "./chat";
 
 export const RecordMenu = () => {
   const botname = 'Hera';
@@ -127,26 +130,31 @@ export const RecordMenu = () => {
   };
 
   return (
-    <Container className="container">
-      <Stack spacing={1} className='chatbox'>
-        <div className="topbar">
-          <FaUser/> Assistance
-        </div>
-        <div className="chat">
-          <p>{message}</p>
-          <div className="loading-icon">
-          { waitingForResponse ? <TailSpin stroke="#6390ff"/>:<div></div>}
+    <>
+      <Header />
+      {/* <Container className="container">
+        <Stack spacing={1} className='chatbox'>
+          <div className="topbar">
+            <FaUser/> Assistance
           </div>
-        </div>
-        <div class='flex-container'>
-          <div className="button-holder">
-          { isRecording ? 
-            <button className="stop-recording" onClick={handleRecordingClick}><BsStop/>Stop Recording</button>:
-            <button className="start-recording" onClick={handleRecordingClick}><CiMicrophoneOn/>Start Recording</button> }
+          <div className="chat">
+            <p>{message}</p>
+            <div className="loading-icon">
+            { waitingForResponse ? <TailSpin stroke="#6390ff"/>:<div></div>}
+            </div>
           </div>
-        </div>
-      </Stack>
-    </Container>
+          <div class='flex-container'>
+            <div className="button-holder">
+            { isRecording ? 
+              <button className="stop-recording" onClick={handleRecordingClick}><BsStop/>Stop Recording</button>:
+              <button className="start-recording" onClick={handleRecordingClick}><CiMicrophoneOn/>Start Recording</button> }
+            </div>
+          </div>
+        </Stack>
+      </Container> */}
+      <Chat />
+      <Footer />
+    </>
   );
 };
 

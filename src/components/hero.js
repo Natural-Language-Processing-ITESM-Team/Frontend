@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import '../general.scss';
 
 export const Hero = ({theme}) =>{
@@ -12,10 +13,10 @@ export const Hero = ({theme}) =>{
                             <h2>Digital Products To</h2>
                             <h2 className="highlight">Promote Your Branch</h2>
                         </div>
-                        <p className="description">Hola soy Abraham y solo hablo pelotudeces cuando abro mi boca jajaja. La neta sí estoy bien idiota.</p>
+                        <p className="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean a ligula sit amet elit ullamcorper porttitor blandit vitae tellus. Donec et vehicula nulla, vel lacinia dui.</p>
                         <div className="heroBtn">
-                            <button className="primaryBtn">Get Started Now</button>
-                            <button className="secondaryBtn">Discover More</button>
+                            <Link to='/chat'><button className="primaryBtn">Chatea Ahora</button></Link>
+                            <button className="secondaryBtn">Repositorio</button>
                         </div>
                     </div>
                     <div className="heroImg">

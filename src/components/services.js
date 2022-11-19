@@ -5,22 +5,22 @@ const serviceData = [
     {
         icon: "ri-apps-line",
         title: "App Development",
-        description: "Hacemos apps bien chidas, por favor anímense a comprarlas tenemos familia e hijos. No sean gachos, compren."
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean a ligula sit amet elit ullamcorper porttitor blandit."
     },
     {
         icon: "ri-code-s-slash-line",
         title: "Web Design",
-        description: "También hacemos buenos diseños web, a nosotros sí nos gusta el frontend porque saber de frontend es para gente basada."
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean a ligula sit amet elit ullamcorper porttitor blandit."
     },
     {
         icon: "ri-landscape-line",
         title: "Graphic Design",
-        description: "Diseños gráficos pues sí también, ya ven que si uno le sabe al diseño web piensan que el wey también es diseñador gráfico."
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean a ligula sit amet elit ullamcorper porttitor blandit."
     },
     {
         icon: "ri-rocket-line",
         title: "Digital Marketing",
-        description: "Pues así que digamos que somos muy buenos pues no, al chile somos ingenieros no tontos licenciados."
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean a ligula sit amet elit ullamcorper porttitor blandit."
     },
 
 ]

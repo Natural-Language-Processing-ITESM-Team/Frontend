@@ -42,7 +42,7 @@
   --btn-primary-bg: #fff;
   --primary-color: #816aff;
   --counter-color: #fff;
-  --counter-section-bg: #816aff;
+  --counter-section-bg: rgba(14, 9, 56, 1) ;
   --link-color: #0c123d;
   --link-active: #816aff
   --newsletter-bg: linear-gradient(
@@ -87,6 +87,23 @@ section{
   padding: 60px 0px;
 }
 
+.aboutSection{
+
+  background-color: rgba(14, 9, 56,1 ) ;
+}
+
+
+.footer{
+  background-color:  var(--counter-section-bg) ;
+}
 .light-theme .counterSection{
   background: var(--counter-section-bg);
+}
+
+.light-theme .heroSection .description{
+  color: #000;
+}
+
+.light-theme a{
+  color: #fff;
 }
