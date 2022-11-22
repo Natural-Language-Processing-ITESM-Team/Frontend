@@ -81,13 +81,14 @@ export const Input = () => {
             );
             //console.log(response);
             
-            const keyJson = JSON.stringify({ key: localStorage.getItem("key") });
+            const toGoJson = JSON.stringify({ key: localStorage.getItem("key"), sttMeasure: STTMeasure, ttsMeasure: TTSMeasure});
             // I call backend to decide which transcribe service to use.
             // The file key I know it, it's stored in localStorage.get("key")
             axios({
             method: "post",
-            url: "http://34.27.178.124:8000/getTranscription", // Change to REAL SERVER ADDRESS.
-            data: keyJson,
+            url: "http://34.69.193.118:8000/getTranscription", // Change to REAL SERVER ADDRESS.
+            
+            data: toGoJson,
             headers: {
                 "Content-Type": "application/json",
                 "Access-Control-Allow-Origin": "*",
@@ -122,8 +123,42 @@ export const Input = () => {
     });
 };
 
+    // Initial state
+    const getInitialStateSTT = () => {
+        const STTMeasure = "Latencia";
+        return STTMeasure;
+    };
+
+    const getInitialStateTTS = () => {
+        const TTSMeasure = "Latencia";
+        return TTSMeasure
+    }
+
+    const [STTMeasure, setSTTMeasure] = useState(getInitialStateSTT);
+    const [TTSMeasure, setTTSMeasure] = useState(getInitialStateTTS);
+
+    const handleChangeSTT = (e) => {
+        setSTTMeasure(e.target.value);
+    };
+
+    const handleChangeTTS = (e) => {
+        setTTSMeasure(e.target.value);
+    };
+
     return(
         <div className="input">
+                <p>{`Métrica voz a texto`}</p>
+                <select value={STTMeasure} onChange={handleChangeSTT}>
+                <option value="Latencia">Latencia</option>
+                <option value="Exactitud">Exactitud</option>
+                <option value="Costo">Costo</option>
+                </select>
+
+                <p>{`Métrica texto a voz`}</p>
+                <select value={TTSMeasure} onChange={handleChangeTTS}>
+                <option value="Latencia">Latencia</option>
+                <option value="Costo">Costo</option>
+                </select>
             <input type="text" placeholder="Escribe algo..." />
             <div className="send">
                 <button>Enviar</button>
