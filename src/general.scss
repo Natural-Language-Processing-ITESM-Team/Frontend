@@ -251,7 +251,7 @@
 
                 .secondaryBtn{
                     background: #5345a4;
-                    border: 1px solid #379cf6;
+                    border: 1px solid #5345a4;
                 }
 
                 .primaryBtn, .secondaryBtn{
@@ -783,6 +783,34 @@
 
     .mobileMenu{
         display: block !important;
+    }
+
+    .light-theme .navigation{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.85);
+        z-index: 99999;
+        display: none;
+    }
+
+    .light-theme .menu{
+        flex-direction: column;
+        background: #5345a4;
+        width: 250px;
+        height: 100%;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 999999;
+        
+        .menuLink{
+            color: #FFF;
+        }
     }
 
     .heroSection{

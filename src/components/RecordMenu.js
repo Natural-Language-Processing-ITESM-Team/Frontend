@@ -1,7 +1,7 @@
 import { Container, Stack } from "@mui/system";
 import "../style/RecordMenu.css"; 
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useReactMediaRecorder } from "react-media-recorder";
 import { FaUser } from "react-icons/fa";
 import { CiMicrophoneOn } from 'react-icons/ci'
@@ -129,9 +129,19 @@ export const RecordMenu = () => {
     
   // };
 
+  const [theme, setTheme] = useState('');
+
+  const toggleTheme = () => {
+      theme === '' ? setTheme('light-theme') : setTheme('');
+  }
+
+  useEffect(() => {
+      document.body.className = theme
+  }, [theme])
+
   return (
     <>
-      <Header />
+      <Header type="chat" theme={theme} toggleTheme={toggleTheme} />
       {/* <Container className="container">
         <Stack spacing={1} className='chatbox'>
           <div className="topbar">

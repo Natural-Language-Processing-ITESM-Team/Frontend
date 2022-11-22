@@ -22,7 +22,7 @@ export const Home = () =>{
 
     return(
         <>
-            <Header theme={theme} toggleTheme={toggleTheme}/>
+            <Header type="home" theme={theme} toggleTheme={toggleTheme}/>
             <Hero theme={theme} />
             {/* <Counter /> */}
             <Services />

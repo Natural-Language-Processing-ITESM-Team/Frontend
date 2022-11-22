@@ -1,7 +1,8 @@
 import React, { useEffect, useRef } from 'react'
 import '../general.scss'
+import { Link } from 'react-router-dom'
 
-const navLinks=[
+const homeLinks=[
     {
         path:'#home',
         display:'Inicio'
@@ -24,7 +25,16 @@ const navLinks=[
     }
 ]
 
-export const Header = ({theme, toggleTheme}) =>{
+const chatLinks = [
+    {
+        path: '/',
+        display: 'Volver'
+    }
+]
+
+export const Header = ({type, theme, toggleTheme}) =>{
+
+    
 
     const headerRef = useRef(null);
     const menuRef = useRef(null);
@@ -61,17 +71,27 @@ export const Header = ({theme, toggleTheme}) =>{
         <header className='header' ref={headerRef}>
             <div className='container'>
                 <div className='navWrapper'>
-                    <div className='logo'>
-                        <h2>HERA</h2>
-                    </div>
+                    <Link to={'/'}>
+                        <div className='logo'>
+                            <h2>HERA</h2>
+                        </div>
+                    </Link>
                     <div className='navigation' ref={menuRef} onClick={toggleMenu}>
                         <ul className='menu'>
                             {
-                                navLinks.map((item, index) => (
-                                    <li className='menuItem' key={index}>
-                                        <a className='menuLink' onClick={handleClick} href={item.path}>{item.display}</a>
-                                    </li>
-                                ))
+                                type === 'home' ? (
+                                    homeLinks.map((item, index) => (
+                                        <li className='menuItem' key={index}>
+                                            <a className='menuLink' onClick={handleClick} href={item.path}>{item.display}</a>
+                                        </li>
+                                    ))
+                                ) : (
+                                    chatLinks.map((item, index) => (
+                                        <li className='menuItem' key={index}>
+                                            <a className='menuLink' href={item.path}>{item.display}</a>
+                                        </li>
+                                    ))
+                                )
                             }
                         </ul>
                     </div>
