@@ -2,10 +2,10 @@ import React, {useState, useEffect} from 'react';
 import '../general.scss';
 import { Header } from './header';
 import { Hero } from './hero';
-import { Counter } from './counter';
+// import { Counter } from './counter';
 import { Services } from './services';
 import { About } from './about';
-import { Team } from './team';
+import { Arch } from './arch';
 import { Footer } from './footer';
 
 export const Home = () =>{
@@ -24,10 +24,10 @@ export const Home = () =>{
         <>
             <Header theme={theme} toggleTheme={toggleTheme}/>
             <Hero theme={theme} />
-            <Counter />
+            {/* <Counter /> */}
             <Services />
             <About />
-            <Team />
+            <Arch />
             <Footer />
         </>
     )

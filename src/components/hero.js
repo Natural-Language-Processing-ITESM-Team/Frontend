@@ -4,7 +4,7 @@ import '../general.scss';
 
 export const Hero = ({theme}) =>{
     return(
-        <section className="heroSection">
+        <section className="heroSection" id="home">
             <div className="container">
                 <div className="heroWrapper">
                     <div className="heroContent">

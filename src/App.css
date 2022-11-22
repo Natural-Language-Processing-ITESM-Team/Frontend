@@ -61,6 +61,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 body{
@@ -87,27 +88,21 @@ section{
   padding: 60px 0px;
 }
 
-.aboutSection{
+@media only screen and (max-width: 1024px){
 
-  background-color: rgba(14, 9, 56,1 ) ;
+  .header{
+    height: 50px;
+    line-height: 50;
+    width: 100%;
+  }
+
+  .container{
+    width: 100%;
+  }
 }
 
-
-.footer{
-  background-color:  var(--counter-section-bg) ;
-}
-.light-theme .counterSection{
-  background: var(--counter-section-bg);
-}
-
-.light-theme .heroSection .description{
-  color: #000;
-}
-
-.light-theme .header a{
-  color: #000;
-}
-
-.light-theme a{
-  color: #fff;
+@media only screen and (max-width: 768px){
+  section{
+    padding: 40px 0px;
+  }
 }
