@@ -1,16 +1,21 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useReactMediaRecorder } from "react-media-recorder";
 import SpinningCircles from "react-loading-icons/dist/esm/components/spinning-circles";
 import TailSpin from "react-loading-icons/dist/esm/components/tail-spin";
 import axios from "axios";
 import "../chat.scss"
+import { ChatContext } from "../context/ChatContext";
 
 export const Input = () => {
+
+    const[message, setMessage] = useContext(ChatContext)
+    const [text, setText] = useState("");
+
 
     const botname = 'Hera';
     const [selectedFile, setSelectedFile] = useState();
     const [isFilePicked, setIsFilePicked] = useState(false);
-    const [message, setMessage] = useState('- Hi my name is '+botname+', how can I help you?');
+    // const [message, setMessage] = useState('- Hi my name is '+botname+', how can I help you?');
     const [recordingName, setRecordingName] = useState(0);
     const [isRecording, setIsRecording] = useState(false);
     const [waitingForResponse, setWaitingForResponse] = useState(false);
@@ -145,11 +150,16 @@ export const Input = () => {
         setTTSMeasure(e.target.value);
     };
 
+    const handleSend = () => {
+        setMessage(message => [...message, text])
+        setText("")
+    };
+
     return(
         <div className="input">
-            <input type="text" placeholder="Escribe algo..." />
+            <input type="text" placeholder="Escribe algo..." onChange={e=>setText(e.target.value)} value={text}/>
             <div className="send">
-                <button>
+                <button onClick={handleSend}>
                     <i className="ri-send-plane-line"></i>
                 </button>
                 {

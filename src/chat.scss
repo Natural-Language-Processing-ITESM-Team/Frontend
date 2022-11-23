@@ -1,3 +1,23 @@
+// RESPONSIVE
+
+@mixin mobile {
+    @media screen and (max-width: 480px) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media screen and (max-width: 768px) {
+        @content;
+    }
+}
+
+@mixin laptop {
+    @media screen and (max-width: 1200px) {
+        @content;
+    }
+}
+
 .home{
     background-color: rgba(6, 11, 26, 1);
     height: 100vh;
@@ -14,6 +34,9 @@
         overflow: hidden;
         padding: 0;
         margin: 0;
+        @include tablet{
+            width: 90%;
+        }
 
         .sidebar{
             flex: 1;
@@ -31,6 +54,9 @@
 
                 .logo{
                     font-weight: bold;
+                    @include tablet{
+                        display: none;
+                    }
                 }
             }
 
