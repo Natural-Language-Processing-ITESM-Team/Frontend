@@ -2,7 +2,7 @@ import React from "react";
 
 export const Message = () => {
     return(
-        <div className="message owner">
+        <div className="message">
             <div className="messageInfo">
                 <img src="https://cdn.dribbble.com/users/279657/screenshots/2701628/chatbot.png" alt="hera"/>
                 <span>Ahora</span>
