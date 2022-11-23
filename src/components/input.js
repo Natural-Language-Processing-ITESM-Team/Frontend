@@ -147,26 +147,27 @@ export const Input = () => {
 
     return(
         <div className="input">
-                <p>{`Métrica voz a texto`}</p>
-                <select value={STTMeasure} onChange={handleChangeSTT}>
-                <option value="Latencia">Latencia</option>
-                <option value="Exactitud">Exactitud</option>
-                <option value="Costo">Costo</option>
-                </select>
-
-                <p>{`Métrica texto a voz`}</p>
-                <select value={TTSMeasure} onChange={handleChangeTTS}>
-                <option value="Latencia">Latencia</option>
-                <option value="Costo">Costo</option>
-                </select>
             <input type="text" placeholder="Escribe algo..." />
             <div className="send">
-                <button>Enviar</button>
+                <button>
+                    <i className="ri-send-plane-line"></i>
+                </button>
                 {
                 isRecording ? 
-                    <button className="stop-recording" style={{backgroundColor: "red"}} onClick={handleRecordingClick}>Detener</button> :
-                    <button className="start-recording" onClick={handleRecordingClick}>Grabar</button>
+                    <button className="stop-recording" style={{backgroundColor: "#5339e4"}} onClick={handleRecordingClick}><i className="ri-stop-circle-line"></i></button> :
+                    <button className="start-recording" onClick={handleRecordingClick}><i className="ri-mic-fill"></i></button>
                 }
+
+                <select value={STTMeasure} onChange={handleChangeSTT}>
+                    <option value="Latencia">Latencia</option>
+                    <option value="Exactitud">Exactitud</option>
+                    <option value="Costo">Costo</option>
+                </select>
+
+                <select value={TTSMeasure} onChange={handleChangeTTS}>
+                    <option value="Latencia">Latencia</option>
+                    <option value="Costo">Costo</option>
+                </select>
             </div>
         </div>
     )
