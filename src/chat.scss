@@ -33,6 +33,39 @@
                     font-weight: bold;
                 }
             }
+
+            .powered{
+                .title{
+                    padding: 10px;
+                    font-size: 11px;
+                }
+            }
+
+            .sponsors{
+                padding: 10px;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                cursor: pointer;
+
+                &:hover{
+                    background-color: #2b3c9f;
+                }
+
+                img{
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 50%;
+                    object-fit: contain;
+                }
+
+                .sponsorInfo{
+                    font-weight: 200;
+                    font-size: 18px;
+                }
+            }
+
+
         }
         .chatcontainer{
             flex: 2;
@@ -195,10 +228,34 @@
                 height: 50px;
                 padding: 10px;
                 justify-content: space-between;
-                color: #FFF;
+                color: #ddddf7;
 
                 .logo{
                     font-weight: bold;
+                }
+            }
+
+            .sponsors{
+                padding: 10px;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                cursor: pointer;
+
+                &:hover{
+                    background-color: #5136e9;
+                }
+
+                img{
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 50%;
+                    object-fit: contain;
+                }
+
+                .sponsorInfo{
+                    font-weight: 200;
+                    font-size: 18px;
                 }
             }
         }
