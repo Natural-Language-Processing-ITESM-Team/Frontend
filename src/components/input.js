@@ -8,7 +8,7 @@ import { ChatContext } from "../context/ChatContext";
 
 export const Input = () => {
 
-    const[message, setMessage] = useContext(ChatContext)
+    const[message, setMessage, owner, setOwner] = useContext(ChatContext);
     const [text, setText] = useState("");
 
 
@@ -152,6 +152,7 @@ export const Input = () => {
 
     const handleSend = () => {
         setMessage(message => [...message, text])
+        setOwner(owner => [...owner, 'message owner'])
         setText("")
     };
 
