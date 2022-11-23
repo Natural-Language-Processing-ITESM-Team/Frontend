@@ -1,5 +1,5 @@
 import React from "react";
-import { NavBar } from "./navbar";
+import { NavBar } from "./NavBar.js";
 import { Powered } from "./powered";
 
 export const SideBar = () => {
