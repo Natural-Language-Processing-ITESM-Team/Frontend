@@ -124,6 +124,10 @@
                 overflow-y: scroll;
                 overflow-x: hidden;
 
+                &::-webkit-scrollbar{
+                    display: none;
+                }
+
                 .message{
                     display: flex;
                     gap: 20px;

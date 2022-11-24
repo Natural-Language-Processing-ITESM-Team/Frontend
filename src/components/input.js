@@ -7,6 +7,7 @@ import "../chat.scss"
 import { ChatContext } from "../context/ChatContext";
 
 export const Input = () => {
+    const BACKEND_IP = '104.198.14.95'
 
     const[message, setMessage, owner, setOwner] = useContext(ChatContext);
     const [text, setText] = useState("");
@@ -47,8 +48,6 @@ export const Input = () => {
 
     const handleSubmission = (blobUrl) => {
 
-    setWaitingForResponse(true);
-
     fetch(blobUrl)
     .then((res) => res.blob())
     .then((mediaBlob) => {
@@ -80,7 +79,6 @@ export const Input = () => {
             //console.log(response);
         })
         .catch(function (response) {
-            // lts fckng go
             console.log(
             "La solicitud se procesó exitosamente pero no hay response por eso se manda error 204."
             );
@@ -91,7 +89,7 @@ export const Input = () => {
             // The file key I know it, it's stored in localStorage.get("key")
             axios({
             method: "post",
-            url: "http://34.69.193.118:8000/getTranscription", // Change to REAL SERVER ADDRESS.
+            url: `http://${BACKEND_IP}:8000/getTranscription`, // Change to REAL SERVER ADDRESS.
             
             data: toGoJson,
             headers: {
@@ -100,7 +98,6 @@ export const Input = () => {
             },
             })
             .then(function (response) {
-                setWaitingForResponse(false);
                 console.log("He recibido respuesta de getTranscription");
                 console.log("La transcripción es ");
                 console.log(response);
@@ -114,7 +111,6 @@ export const Input = () => {
 
             })
             .catch(function (response) {
-                setWaitingForResponse(false);
                 console.log("error when calling getTranscription");
                 console.log(response);
             });
@@ -122,11 +118,30 @@ export const Input = () => {
 
     })
     .catch(function (response) {
-        setWaitingForResponse(false);
         console.log("error al crear archivo de mediaBlob");
         console.log(response);
     });
-};
+    };
+
+    const handleTextSubmission = () => {
+        axios({
+            method: "post",
+            url: `http://${BACKEND_IP}:8000/utterTextFromText`, // Change to REAL SERVER ADDRESS.
+            
+            data: {"clientQuery": text},
+            headers: {
+                "Content-Type": "application/json",
+                "Access-Control-Allow-Origin": "*",
+            },
+            })
+            .then(function (response) {
+                //console.log(response);
+                handleHera(response['data'])
+            })
+            .catch(function (response) {
+                console.log(response);
+            });
+    };
 
     // Initial state
     const getInitialStateSTT = () => {
@@ -151,9 +166,20 @@ export const Input = () => {
     };
 
     const handleSend = () => {
-        setMessage(message => [...message, text])
-        setOwner(owner => [...owner, 'message owner'])
-        setText("")
+        if(text !== ""){
+            setMessage(message => [...message, text])
+            setOwner(owner => [...owner, 'message owner'])
+            handleTextSubmission()
+            setText("")
+        }
+    };
+
+    const handleHera = (heraText) => {
+        if(text !== ""){
+            setMessage(message => [...message, heraText])
+            setOwner(owner => [...owner, 'message'])
+            setText("")
+        }
     };
 
     return(
