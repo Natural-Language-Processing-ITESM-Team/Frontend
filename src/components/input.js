@@ -98,17 +98,10 @@ export const Input = () => {
             },
             })
             .then(function (response) {
-                console.log("He recibido respuesta de getTranscription");
-                console.log("La transcripción es ");
                 console.log(response);
-                audio = new Audio(response['data']);
+                audio = new Audio(response['data']['audio_response_link']);
                 audio.play();
-                // if( 'messages' in response['data']) {
-                // setMessage(response['data']['messages'][0]['content']);
-                // } else {
-                // setMessage("I didn't understand");
-                // }
-
+                handleHera(response['data']['text_for_client'])
             })
             .catch(function (response) {
                 console.log("error when calling getTranscription");
@@ -174,17 +167,21 @@ export const Input = () => {
         }
     };
 
+    const handleKeyPress = e => {
+        if(e.key === 'Enter'){
+            handleSend();
+        }
+    }
+
     const handleHera = (heraText) => {
-        if(text !== ""){
             setMessage(message => [...message, heraText])
             setOwner(owner => [...owner, 'message'])
             setText("")
-        }
     };
 
     return(
         <div className="input">
-            <input type="text" placeholder="Escribe algo..." onChange={e=>setText(e.target.value)} value={text}/>
+            <input type="text" placeholder="Escribe algo..." onChange={e=>setText(e.target.value)} value={text} onKeyPress={handleKeyPress}/>
             <div className="send">
                 <button onClick={handleSend}>
                     <i className="ri-send-plane-line"></i>
