@@ -9,11 +9,10 @@ export const Hero = ({theme}) =>{
                 <div className="heroWrapper">
                     <div className="heroContent">
                         <div>
-                            <h2>We're Creating Perfect</h2>
-                            <h2>Digital Products To</h2>
-                            <h2 className="highlight">Promote Your Branch</h2>
+                            <h2>La Solución Perfecta</h2>
+                            <h2 className="highlight">A Todas Tus Dudas</h2>
                         </div>
-                        <p className="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean a ligula sit amet elit ullamcorper porttitor blandit vitae tellus. Donec et vehicula nulla, vel lacinia dui.</p>
+                        <p className="description">HERA es un conmutador de servicios de procesamiento de lenguaje natural que utiliza un modelo de clasificación de alto nivel para comprenderte y encontrar la mejor solución a tus dudas.</p>
                         <div className="heroBtn">
                             <Link to='/chat'><button className="primaryBtn">Chatea Ahora</button></Link>
                             <button className="secondaryBtn">Repositorio</button>
@@ -21,7 +20,7 @@ export const Hero = ({theme}) =>{
                     </div>
                     <div className="heroImg">
                         <img 
-                        src={ theme === 'light-theme' ? "https://www.appincubator.io/assets/images/chatbot/all-about-chatbot.png" : "https://itcgroup.io/static/templates/assets/images/chatbot.png"} 
+                        src="https://itcgroup.io/static/templates/assets/images/chatbot.png"
                         alt="hero"
                         />
                     </div>

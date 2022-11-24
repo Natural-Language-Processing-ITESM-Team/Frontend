@@ -3,24 +3,24 @@ import '../general.scss';
 
 const serviceData = [
     {
-        icon: "ri-apps-line",
-        title: "App Development",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean a ligula sit amet elit ullamcorper porttitor blandit."
+        icon: "ri-gamepad-line",
+        title: "Gaming",
+        description: "Conocer resultados de partidas y consultar fechas de los próximos eventos relaciondas al equipo de Borregos Gaming."
     },
     {
-        icon: "ri-code-s-slash-line",
-        title: "Web Design",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean a ligula sit amet elit ullamcorper porttitor blandit."
+        icon: "ri-book-mark-line",
+        title: "Carreras",
+        description: "Obtener información acerca de la oferta educativa, así como de las competencias y duración de las carreras actuales."
     },
     {
-        icon: "ri-landscape-line",
-        title: "Graphic Design",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean a ligula sit amet elit ullamcorper porttitor blandit."
+        icon: "ri-door-open-line",
+        title: "Admisiones",
+        description: "Conocer lo necesario para tu proceso de admisión y los pasos que debes de seguir para convertirte en un borrego CEM."
     },
     {
-        icon: "ri-rocket-line",
-        title: "Digital Marketing",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean a ligula sit amet elit ullamcorper porttitor blandit."
+        icon: "ri-shirt-line",
+        title: "Exatec",
+        description: "Consultar los beneficios que tenemos para la comunidad graduada del campus CEM, al igual que ofertas laborales."
     },
 
 ]
@@ -30,9 +30,9 @@ export const Services = () =>{
         <section className="serviceSection" id="service">
             <div className="container">
                 <div className="serviceTopContent">
-                    <h6 className="subtitle">Our Services</h6>
-                    <h2>Save time managing your business with</h2>
-                    <h2 className="highlight">our best services</h2>
+                    <h6 className="subtitle">Caso de Aplicación</h6>
+                    <h2>HERA actualmente está siendo aplicado para</h2>
+                    <h2 className="highlight">chatbot en el ITESM CEM</h2>
                 </div>
 
                 <div className="serviceItemWrapper">

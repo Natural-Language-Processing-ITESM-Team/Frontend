@@ -8,12 +8,12 @@ const homeLinks=[
         display:'Inicio'
     },
     {
-        path:'#service',
-        display:'Aplicación'
-    },
-    {
         path:'#about',
         display:'Conoce a HERA'
+    },
+    {
+        path:'#service',
+        display:'Aplicación'
     },
     {
         path:'#architecture',

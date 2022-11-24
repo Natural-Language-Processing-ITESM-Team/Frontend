@@ -3,19 +3,19 @@ import '../general.scss';
 
 const chooseData = [
     {
-        icon: "ri-wifi-fill",
-        title: "First working process",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        icon: "ri-flow-chart",
+        title: "Adaptabilidad",
+        description: "HERA se adapta a cualquier caso que el cliente solicite."
     },
     {
-        icon: "ri-team-line",
-        title: "Dedicated team",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        icon: "ri-speed-line",
+        title: "Velocidad",
+        description: "Las respuestas de HERA demoran poco tiempo y son al instante."
     },
     {
-        icon: "ri-customer-service-2-line",
-        title: "24/7 Support",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        icon: "ri-check-double-line",
+        title: "Efictividad",
+        description: "Las respuestas de HERA son objetivas y asertivas."
     },
 ]
 
@@ -25,10 +25,10 @@ export const About = () => {
             <div className="container">
                 <div className="aboutWrapper">
                     <div className="aboutContent">
-                        <h6 className="subtitle">Why Choose Us?</h6>
-                        <h2>Specialist in aviding clients on</h2>
-                        <h2 className="highlight">financial challenges</h2>
-                        <p className="description aboutContentDesc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean a ligula sit amet elit ullamcorper porttitor blandit vitae tellus. Donec et vehicula nulla, vel lacinia dui.</p>
+                        <h6 className="subtitle">¿Por qué HERA?</h6>
+                        <h2>HERA se especializa en</h2>
+                        <h2 className="highlight">brindar soluciones personalizadas</h2>
+                        <p className="description aboutContentDesc">HERA pone al alcance de los clientes una herramienta que puede ser utilizada en cualquier situación, en cualquier momento y a cualquier hora gracias a las tecnologías integradas en su desarrollo.</p>
                         <div className="chooseItemWrapper">
                             {
                                 chooseData.map((item, index) => (

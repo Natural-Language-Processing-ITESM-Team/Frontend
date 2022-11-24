@@ -5,22 +5,22 @@ const teamContent = [
     {
         img: 'https://kinsta.com/wp-content/uploads/2021/11/front-end-developer.png',
         name: 'Desarrollo Frontend',
-        description: 'Desarrollo de Backend utilizando la paquetería Flask.'
+        description: 'El Frontend de la aplicación HERA fue realizado utilizando el framework ReactJS.'
     },
     {
         img: 'https://kinsta.com/es/wp-content/uploads/sites/8/2021/12/back-end-developer-1024x512.png',
         name: 'Desarrollo Backend',
-        description: 'Desarrollo de Backend utilizando la paquetería Flask.'
+        description: 'Desarrollo de Backend utilizando la paquetería Flask del lenguaje Python.'
     },
     {
         img: 'https://knowledgeone.ca/wp-content/uploads/2019/10/AI_glossary.jpg',
         name: 'Aprendizaje Automático',
-        description: 'Desarrollo de Backend utilizando la paquetería Flask.'
+        description: 'Para nuestro modelo utilizamos datos de Twitter y la documentación de Huggingface.'
     },
     {
         img: 'https://www.bbva.com/wp-content/uploads/2019/11/machine-learning-1024x629.jpg',
         name: 'Motores de Voz',
-        description: 'Desarrollo de Backend utilizando la paquetería Flask.'
+        description: 'Se utilizaron los servicios de NLP de Amazon, Google, Microsoft, IBM y Nvidia.'
     }
 ]
 

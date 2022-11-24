@@ -25,8 +25,8 @@ export const Home = () =>{
             <Header type="home" theme={theme} toggleTheme={toggleTheme}/>
             <Hero theme={theme} />
             {/* <Counter /> */}
-            <Services />
             <About />
+            <Services />
             <Arch />
             <Footer />
         </>
