@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useRef } from "react";
 import { ChatContext } from "../context/ChatContext";
 
 export const Message = () => {
@@ -10,11 +10,17 @@ export const Message = () => {
     const CHATBOT_LOGO = "https://cdn.dribbble.com/users/279657/screenshots/2701628/chatbot.png"
     const USER_LOGO = "https://cdn-icons-png.flaticon.com/512/149/149071.png"
 
+    const ref = useRef()
+
+    useEffect(()=>{
+        ref.current?.scrollIntoView({behavior:"smooth"});
+    }, [message]);
+
     return(
         <>
         {
             message.map((item, index) => (
-                <div className={owner[index]} key={index}>
+                <div ref={ref} className={owner[index]} key={index}>
                     <div className="messageInfo">
                         { owner[index] === "message" ? <img src={CHATBOT_LOGO} alt="hera"/> : <img src={USER_LOGO} alt="user"/>}
                         <span>{time}</span>

@@ -192,16 +192,20 @@ export const Input = () => {
                     <button className="start-recording" onClick={handleRecordingClick}><i className="ri-mic-fill"></i></button>
                 }
 
-                <select value={STTMeasure} onChange={handleChangeSTT}>
-                    <option value="Latencia">Latencia</option>
-                    <option value="Exactitud">Exactitud</option>
-                    <option value="Costo">Costo</option>
-                </select>
+                <div className="select">
+                    <select value={STTMeasure} onChange={handleChangeSTT}>
+                        <option value="" selected disabled>STT</option>
+                        <option value="Latencia">Latencia</option>
+                        <option value="Exactitud">Exactitud</option>
+                        <option value="Costo">Costo</option>
+                    </select>
 
-                <select value={TTSMeasure} onChange={handleChangeTTS}>
-                    <option value="Latencia">Latencia</option>
-                    <option value="Costo">Costo</option>
-                </select>
+                    <select value={TTSMeasure} onChange={handleChangeTTS}>
+                        <option value="" selected disabled>TTS</option>
+                        <option value="Latencia">Latencia</option>
+                        <option value="Costo">Costo</option>
+                    </select>
+                </div>
             </div>
         </div>
     )
