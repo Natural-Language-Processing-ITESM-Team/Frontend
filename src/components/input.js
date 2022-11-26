@@ -7,7 +7,7 @@ import "../chat.scss"
 import { ChatContext } from "../context/ChatContext";
 
 export const Input = () => {
-    const BACKEND_IP = '104.198.14.95'
+    const BACKEND_URL = 'https://hera-server.proyetos.vash-tec-cem.net/'
 
     const[message, setMessage, owner, setOwner] = useContext(ChatContext);
     const [text, setText] = useState("");
@@ -89,7 +89,7 @@ export const Input = () => {
             // The file key I know it, it's stored in localStorage.get("key")
             axios({
             method: "post",
-            url: `http://${BACKEND_IP}:8000/getTranscription`, // Change to REAL SERVER ADDRESS.
+            url: BACKEND_URL // Change to REAL SERVER ADDRESS.
             
             data: toGoJson,
             headers: {
