@@ -7,7 +7,7 @@ import "../chat.scss"
 import { ChatContext } from "../context/ChatContext";
 
 export const Input = () => {
-    const BACKEND_URL = 'https://hera-server.proyetos.vash-tec-cem.net/'
+    const BACKEND_URL = 'https://hera-server.proyectos-vash-tec-cem.net/'
 
     const[message, setMessage, owner, setOwner] = useContext(ChatContext);
     const [text, setText] = useState("");
