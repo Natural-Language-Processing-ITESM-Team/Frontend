@@ -89,8 +89,7 @@ export const Input = () => {
             // The file key I know it, it's stored in localStorage.get("key")
             axios({
             method: "post",
-            url: BACKEND_URL // Change to REAL SERVER ADDRESS.
-            
+            url: `${BACKEND_URL}getTranscription`, // Change to REAL SERVER ADDRESS.
             data: toGoJson,
             headers: {
                 "Content-Type": "application/json",
@@ -119,8 +118,7 @@ export const Input = () => {
     const handleTextSubmission = () => {
         axios({
             method: "post",
-            url: `http://${BACKEND_IP}:8000/utterTextFromText`, // Change to REAL SERVER ADDRESS.
-            
+            url: `${BACKEND_URL}utterTextFromText`, // Change to REAL SERVER ADDRESS.
             data: {"clientQuery": text},
             headers: {
                 "Content-Type": "application/json",
