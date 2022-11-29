@@ -52,7 +52,7 @@ export const Input = () => {
     .then((res) => res.blob())
     .then((mediaBlob) => {
 
-        const myFile = new File([mediaBlob], "demo.webm", {
+        const myFile = new File([mediaBlob], `${getUUID()}_audio.webm`, {
         type: "audio/webm",
         });
         console.log("Logré guardar blob en archivo");
@@ -87,7 +87,6 @@ export const Input = () => {
             const toGoJson = JSON.stringify({ key: localStorage.getItem("key"), sttMeasure: STTMeasure, ttsMeasure: TTSMeasure, clientID: getUUID(), topic: topic});
             // I call backend to decide which transcribe service to use.
             // The file key I know it, it's stored in localStorage.get("key")
-            console.log(`uuid: ${getUUID()}, topic: ${topic}`);
             axios({
             method: "post",
             url: `${BACKEND_URL}getTranscription`, // Change to REAL SERVER ADDRESS.
@@ -103,6 +102,7 @@ export const Input = () => {
                 audio.play();
                 handleHera(response['data']['text_for_client'])
                 setTopic(response['data']['topic'])
+                console.log(`topic: ${topic}`)
             })
             .catch(function (response) {
                 console.log("error when calling getTranscription");
@@ -118,7 +118,6 @@ export const Input = () => {
     };
 
     const handleTextSubmission = () => {
-        console.log(`uuid: ${getUUID()}, topic: ${topic}`);
         axios({
             method: "post",
             url: `${BACKEND_URL}utterTextFromText`, // Change to REAL SERVER ADDRESS.
@@ -132,6 +131,7 @@ export const Input = () => {
                 //console.log(response);
                 handleHera(response['data']['text_for_client'])
                 setTopic(response['data']['topic'])
+                console.log(`topic: ${topic}`);
             })
             .catch(function (response) {
                 console.log(response);
@@ -207,6 +207,10 @@ export const Input = () => {
                         <option value="Latencia">Latencia</option>
                         <option value="Exactitud">Exactitud</option>
                         <option value="Costo">Costo</option>
+                        <option value="Transcribe">Transcribe</option>
+                        <option value="GoogleSTT">GoogleSTT</option>
+                        <option value="WatsonSTT">WatsonSTT</option>
+                        <option value="AzureSTT">AzureSTT</option>
                     </select>
 
                     <select value={TTSMeasure} onChange={handleChangeTTS}>
