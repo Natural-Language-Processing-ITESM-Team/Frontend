@@ -5,13 +5,13 @@ import TailSpin from "react-loading-icons/dist/esm/components/tail-spin";
 import axios from "axios";
 import "../chat.scss"
 import { ChatContext } from "../context/ChatContext";
+import uuid from 'react-uuid';
 
 export const Input = () => {
     const BACKEND_URL = 'https://hera-server.proyectos-vash-tec-cem.net/'
 
-    const[message, setMessage, owner, setOwner] = useContext(ChatContext);
+    const[message, setMessage, owner, setOwner, topic, setTopic] = useContext(ChatContext);
     const [text, setText] = useState("");
-
 
     const botname = 'Hera';
     const [selectedFile, setSelectedFile] = useState();
@@ -84,9 +84,10 @@ export const Input = () => {
             );
             //console.log(response);
             
-            const toGoJson = JSON.stringify({ key: localStorage.getItem("key"), sttMeasure: STTMeasure, ttsMeasure: TTSMeasure});
+            const toGoJson = JSON.stringify({ key: localStorage.getItem("key"), sttMeasure: STTMeasure, ttsMeasure: TTSMeasure, clientID: getUUID(), topic: topic});
             // I call backend to decide which transcribe service to use.
             // The file key I know it, it's stored in localStorage.get("key")
+            console.log(`uuid: ${getUUID()}, topic: ${topic}`);
             axios({
             method: "post",
             url: `${BACKEND_URL}getTranscription`, // Change to REAL SERVER ADDRESS.
@@ -101,6 +102,7 @@ export const Input = () => {
                 audio = new Audio(response['data']['audio_response_link']);
                 audio.play();
                 handleHera(response['data']['text_for_client'])
+                setTopic(response['data']['topic'])
             })
             .catch(function (response) {
                 console.log("error when calling getTranscription");
@@ -116,10 +118,11 @@ export const Input = () => {
     };
 
     const handleTextSubmission = () => {
+        console.log(`uuid: ${getUUID()}, topic: ${topic}`);
         axios({
             method: "post",
             url: `${BACKEND_URL}utterTextFromText`, // Change to REAL SERVER ADDRESS.
-            data: {"clientQuery": text},
+            data: {"clientQuery" : text, "clientID" : getUUID(), "topic" : topic},
             headers: {
                 "Content-Type": "application/json",
                 "Access-Control-Allow-Origin": "*",
@@ -127,7 +130,8 @@ export const Input = () => {
             })
             .then(function (response) {
                 //console.log(response);
-                handleHera(response['data'])
+                handleHera(response['data']['text_for_client'])
+                setTopic(response['data']['topic'])
             })
             .catch(function (response) {
                 console.log(response);
@@ -176,6 +180,13 @@ export const Input = () => {
             setOwner(owner => [...owner, 'message'])
             setText("")
     };
+
+    const getUUID = () => {
+        if (localStorage.getItem("uuid") === null){
+            localStorage.setItem("uuid", uuid())
+        }
+        return localStorage.getItem("uuid")
+    }
 
     return(
         <div className="input">
