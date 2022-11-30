@@ -55,10 +55,8 @@ export const Input = () => {
         const myFile = new File([mediaBlob], `${getUUID()}_audio.webm`, {
         type: "audio/webm",
         });
-        console.log("Logré guardar blob en archivo");
-        console.log(myFile);
         
-        // upload the audio file into amazon S3 bucket.
+        // upload the audio file to backend
         const form = new FormData();
 
         const keyPrefix = "transcribe/"
@@ -70,26 +68,18 @@ export const Input = () => {
 
         axios({
         method: "post",
-        url: "http://buketa.s3.amazonaws.com/",
+        url: `${BACKEND_URL}uploadFile`,
         data: form,
         headers: { "Content-Type": "multipart/form-data" },
         })
         .then(function (response) {
-            //handle success
-            //console.log(response);
-        })
-        .catch(function (response) {
-            console.log(
-            "La solicitud se procesó exitosamente pero no hay response por eso se manda error 204."
-            );
-            //console.log(response);
-            
+            console.log("Audio submited")
+
             const toGoJson = JSON.stringify({ key: localStorage.getItem("key"), sttMeasure: STTMeasure, ttsMeasure: TTSMeasure, clientID: getUUID(), topic: topic});
-            // I call backend to decide which transcribe service to use.
-            // The file key I know it, it's stored in localStorage.get("key")
+
             axios({
             method: "post",
-            url: `${BACKEND_URL}getTranscription`, // Change to REAL SERVER ADDRESS.
+            url: `${BACKEND_URL}getTranscription`,
             data: toGoJson,
             headers: {
                 "Content-Type": "application/json",
@@ -108,12 +98,13 @@ export const Input = () => {
                 console.log("error when calling getTranscription");
                 console.log(response);
             });
+        })
+        .catch(function (response) {
+            console.log("Error al subir el audio")
         });
-
     })
     .catch(function (response) {
         console.log("error al crear archivo de mediaBlob");
-        console.log(response);
     });
     };
 
