@@ -147,7 +147,7 @@
                 background-color: #FFF;
                 padding: 10px;
                 color: #FFF;
-                height: calc(100% - 100px);
+                height: calc(100% - 95px);
                 overflow-y: scroll;
                 overflow-x: hidden;
 
@@ -211,10 +211,11 @@
                padding: 10px;
                display: flex;
                align-items: center;
-               justify-content: space-between;
+               justify-content: space-evenly;
+               gap: 10px;
 
                input{
-                width: 100%;
+                width: 85%;
                 border: none;
                 outline: none;
                 color: #2f2d52;
@@ -231,8 +232,8 @@
                 gap: 10px;
 
                     button{
-                        width: 40px;
-                        height: 40px;
+                        width: 30px;
+                        height: 30px;
                         display: flex;
                         align-items: center;
                         justify-content: center;
@@ -254,9 +255,9 @@
                     .select{
 
                         display: flex;
-                        width: 110px;
+                        width: 130px;
                         height: 20px;
-                        gap: 10px;
+                        gap: 5px;
                         overflow: hidden;
 
                         select{
@@ -268,12 +269,13 @@
                             box-shadow: none;
                             border: 0 !important;
                             background: #364cc7;
-                            background-image: none;
+                            // background-image: none;
                             color: #FFF;
+                            text-align: center;
                             border-radius: .25em;
-                            padding: 10px 0px 10px 0px;
+                            // padding: 10px 0px 10px 0px;
                             cursor: pointer;
-                            font-size: 14px;
+                            font-size: 15px;
 
                             &::-ms-expand{
                                 display: none;
@@ -373,7 +375,7 @@
             .messages{
                 background-color: #FFF;
                 padding: 10px;
-                height: calc(100% - 100px);
+                height: calc(100% - 95px);
                 overflow-y: scroll;
                 overflow-x: hidden;
 
@@ -428,7 +430,7 @@
             }
 
             .input{
-               height: 50px;
+               height: 45px;
                background-color: #FFF;
                color: #000;
                padding: 10px;
@@ -442,7 +444,7 @@
                 border: none;
                 outline: none;
                 color: #2f2d52;
-                font-size: 18px;
+                font-size: 14px;
 
                     &::placeholder{
                         color: lightgray;
@@ -455,8 +457,8 @@
                 gap: 10px;
 
                 button{
-                    width: 40px;
-                    height: 40px;
+                    width: 30px;
+                    height: 30px;
                     display: flex;
                     align-items: center;
                     justify-content: center;
@@ -472,6 +474,37 @@
 
                     i{
                         color: #FFF;
+                    }
+                }
+
+                .select{
+
+                    display: flex;
+                    width: 130px;
+                    height: 20px;
+                    gap: 5px;
+                    overflow: hidden;
+
+                    select{
+                        -webkit-appearance: none;
+                        appearance: none;
+                        -moz-appearance: none;
+                        -ms-appearance: none;
+                        outline: 0;
+                        box-shadow: none;
+                        border: 0 !important;
+                        background: #6850ef;
+                        // background-image: none;
+                        color: #FFF;
+                        text-align: center;
+                        border-radius: .25em;
+                        // padding: 10px 0px 10px 0px;
+                        cursor: pointer;
+                        font-size: 15px;
+
+                        &::-ms-expand{
+                            display: none;
+                        }
                     }
                 }
                }

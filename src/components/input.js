@@ -198,20 +198,20 @@ export const Input = () => {
                         <option value="Latencia">Latencia</option>
                         <option value="Exactitud">Exactitud</option>
                         <option value="Costo">Costo</option>
-                        <option value="Transcribe">Transcribe</option>
-                        <option value="GoogleSTT">GoogleSTT</option>
-                        <option value="WatsonSTT">WatsonSTT</option>
-                        <option value="AzureSTT">AzureSTT</option>
+                        <option value="Transcribe">Amazon</option>
+                        <option value="GoogleSTT">Google</option>
+                        <option value="WatsonSTT">Watson</option>
+                        <option value="AzureSTT">Azure</option>
                     </select>
 
                     <select value={TTSMeasure} onChange={handleChangeTTS}>
                         <option value="" selected disabled>TTS</option>
                         <option value="Latencia">Latencia</option>
                         <option value="Costo">Costo</option>
-                        <option value="Polly">Polly</option>
-                        <option value="GoogleTTS">GoogleTTS</option>
-                        <option value="WatsonTTS">WatsonTTS</option>
-                        <option value="AzureTTS">AzureTTS</option>
+                        <option value="Polly">Amazon</option>
+                        <option value="GoogleTTS">Google</option>
+                        <option value="WatsonTTS">Watson</option>
+                        <option value="AzureTTS">Azure</option>
                     </select>
                 </div>
             </div>
