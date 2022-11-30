@@ -208,6 +208,10 @@ export const Input = () => {
                         <option value="" selected disabled>TTS</option>
                         <option value="Latencia">Latencia</option>
                         <option value="Costo">Costo</option>
+                        <option value="Polly">Polly</option>
+                        <option value="GoogleTTS">GoogleTTS</option>
+                        <option value="WatsonTTS">WatsonTTS</option>
+                        <option value="AzureTTS">AzureTTS</option>
                     </select>
                 </div>
             </div>
