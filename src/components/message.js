@@ -39,7 +39,7 @@ export const Message = () => {
                     <span>{time}</span>
                 </div>
                 <div className="messageContent">
-                    <p>waiting</p>
+                    <img src="https://media.tenor.com/vXnmG74PsvUAAAAM/oop-tehe.gif" alt="waiting"/>
                 </div>
             </div> : <div></div>}
         </>
