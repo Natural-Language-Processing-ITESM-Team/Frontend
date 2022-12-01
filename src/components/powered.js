@@ -1,10 +1,14 @@
 import React from "react";
 import '../chat.scss';
+import IBM from "../img/watson.jpeg";
+import LEX from "../img/LEX.jpeg";
+import Azure from "../img/Azure.jpeg";
+import NVIDIA from "../img/NVIDIA.jpeg";
 
 const sponsorInfo = [
     {
         name: 'Amazon Lex',
-        img: 'https://symbols.getvecta.com/stencil_7/2_amazon-polly.9eace78874.jpg'
+        img: LEX
     },
     {
         name: 'Google Dialogflow',
@@ -12,15 +16,15 @@ const sponsorInfo = [
     },
     {
         name: 'IBM Watson',
-        img: 'https://www.pngitem.com/pimgs/m/212-2120270_ibm-watson-logo-png-ibm-watson-png-transparent.png'
+        img: IBM
     },
     {
         name: "Microsoft Azure",
-        img: 'https://swimburger.net/media/0zcpmk1b/azure.jpg'
+        img: Azure
     },
     {
         name:"NVIDIA Nemo",
-        img: "https://i.etsystatic.com/23511185/r/il/e056a3/2384976935/il_570xN.2384976935_56zr.jpg"
+        img: NVIDIA
     }
 
 ]

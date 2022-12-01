@@ -2,7 +2,7 @@ import React from "react";
 import '../chat.scss';
 import { Input } from "./input";
 import { Messages } from "./messages";
-import IBM from "../img/IBM.jpeg";
+import IBM from "../img/watson.jpeg";
 import LEX from "../img/LEX.jpeg";
 import Azure from "../img/Azure.jpeg";
 import NVIDIA from "../img/NVIDIA.jpeg";
