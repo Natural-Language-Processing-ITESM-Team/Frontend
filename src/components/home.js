@@ -7,6 +7,7 @@ import { Services } from './services';
 import { About } from './about';
 import { Arch } from './arch';
 import { Footer } from './footer';
+import { Team } from './team';
 
 export const Home = () =>{
 
@@ -28,6 +29,7 @@ export const Home = () =>{
             <About />
             <Services />
             <Arch />
+            <Team />
             <Footer />
         </>
     )
