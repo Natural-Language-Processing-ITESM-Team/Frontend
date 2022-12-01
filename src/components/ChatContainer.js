@@ -39,7 +39,7 @@ export const ChatContainer = () =>{
                 <div className="chatContacts">
                     {
                         sponsorInfo.map((item, index) =>(
-                            <img key = {index} src={item.img} alt={item.name}/>
+                            <img key= {index} src={item.img} alt={item.name}/>
                         ))
                     }
                 </div>
