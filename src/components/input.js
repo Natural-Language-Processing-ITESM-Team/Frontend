@@ -9,8 +9,9 @@ import uuid from 'react-uuid';
 
 export const Input = () => {
     const BACKEND_URL = 'https://hera-server.proyectos-vash-tec-cem.net/'
+    const date = new Date();
 
-    const[message, setMessage, owner, setOwner, topic, setTopic, waiting, setWaiting] = useContext(ChatContext);
+    const[message, setMessage, owner, setOwner, topic, setTopic, waiting, setWaiting, time, setTime] = useContext(ChatContext);
     const [text, setText] = useState("");
 
     const botname = 'Hera';
@@ -74,8 +75,7 @@ export const Input = () => {
         headers: { "Content-Type": "multipart/form-data" },
         })
         .then(function (response) {
-            console.log("Audio submited")
-
+            
             const toGoJson = JSON.stringify({ key: localStorage.getItem("key"), sttMeasure: STTMeasure, ttsMeasure: TTSMeasure, clientID: getUUID(), topic: topic});
 
             axios({
@@ -88,12 +88,10 @@ export const Input = () => {
             },
             })
             .then(function (response) {
-                console.log(response);
                 audio = new Audio(response['data']['audio_response_link']);
                 audio.play();
                 handleHera(response['data']['text_for_client'])
                 setTopic(response['data']['topic'])
-                console.log(`topic: ${topic}`)
                 setWaiting(false);
             })
             .catch(function (response) {
@@ -128,7 +126,6 @@ export const Input = () => {
                 //console.log(response);
                 handleHera(response['data']['text_for_client'])
                 setTopic(response['data']['topic'])
-                console.log(`topic: ${topic}`);
                 setWaiting(false);
             })
             .catch(function (response) {
@@ -163,6 +160,7 @@ export const Input = () => {
         if(text !== ""){
             setMessage(message => [...message, text])
             setOwner(owner => [...owner, 'message owner'])
+            setTime(time => [...time, date.getHours() + ':' + date.getMinutes()])
             handleTextSubmission()
             setText("")
         }
@@ -177,6 +175,7 @@ export const Input = () => {
     const handleHera = (heraText) => {
             setMessage(message => [...message, heraText])
             setOwner(owner => [...owner, 'message'])
+            setTime(time => [...time, date.getHours() + ':' + date.getMinutes()])
             setText("")
     };
 
