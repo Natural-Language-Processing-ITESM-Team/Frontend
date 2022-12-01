@@ -131,12 +131,12 @@ export const Input = () => {
 
     // Initial state
     const getInitialStateSTT = () => {
-        const STTMeasure = "Latencia";
+        const STTMeasure = "";
         return STTMeasure;
     };
 
     const getInitialStateTTS = () => {
-        const TTSMeasure = "Latencia";
+        const TTSMeasure = "";
         return TTSMeasure
     }
 
@@ -194,7 +194,7 @@ export const Input = () => {
 
                 <div className="select">
                     <select value={STTMeasure} onChange={handleChangeSTT}>
-                        <option value="" selected disabled>STT</option>
+                        <option value="" selected>STT</option>
                         <option value="Latencia">Latencia</option>
                         <option value="Exactitud">Exactitud</option>
                         <option value="Costo">Costo</option>
@@ -205,7 +205,7 @@ export const Input = () => {
                     </select>
 
                     <select value={TTSMeasure} onChange={handleChangeTTS}>
-                        <option value="" selected disabled>TTS</option>
+                        <option value="" selected>TTS</option>
                         <option value="Latencia">Latencia</option>
                         <option value="Costo">Costo</option>
                         <option value="Polly">Amazon</option>
