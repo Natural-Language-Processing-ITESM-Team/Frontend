@@ -131,13 +131,13 @@ export const Input = () => {
 
     // Initial state
     const getInitialStateSTT = () => {
-        const STTMeasure = "";
+        const STTMeasure = "Latencia";
         return STTMeasure;
     };
 
     const getInitialStateTTS = () => {
-        const TTSMeasure = "";
-        return TTSMeasure
+        const TTSMeasure = "Latencia";
+        return TTSMeasure;
     }
 
     const [STTMeasure, setSTTMeasure] = useState(getInitialStateSTT);
@@ -202,6 +202,7 @@ export const Input = () => {
                         <option value="GoogleSTT">Google</option>
                         <option value="WatsonSTT">Watson</option>
                         <option value="AzureSTT">Azure</option>
+                        <option value="NvidiaSTT">Nvidia</option>
                     </select>
 
                     <select value={TTSMeasure} onChange={handleChangeTTS}>
