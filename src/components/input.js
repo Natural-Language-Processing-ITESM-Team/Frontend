@@ -10,7 +10,7 @@ import uuid from 'react-uuid';
 export const Input = () => {
     const BACKEND_URL = 'https://hera-server.proyectos-vash-tec-cem.net/'
 
-    const[message, setMessage, owner, setOwner, topic, setTopic] = useContext(ChatContext);
+    const[message, setMessage, owner, setOwner, topic, setTopic, waiting, setWaiting] = useContext(ChatContext);
     const [text, setText] = useState("");
 
     const botname = 'Hera';
@@ -38,6 +38,7 @@ export const Input = () => {
         stopRecording();
         setIsRecording(false);
         // handleSubmission();
+        setWaiting(true);
     }
     };
 
@@ -47,7 +48,7 @@ export const Input = () => {
     };
 
     const handleSubmission = (blobUrl) => {
-
+    
     fetch(blobUrl)
     .then((res) => res.blob())
     .then((mediaBlob) => {
@@ -93,22 +94,27 @@ export const Input = () => {
                 handleHera(response['data']['text_for_client'])
                 setTopic(response['data']['topic'])
                 console.log(`topic: ${topic}`)
+                setWaiting(false);
             })
             .catch(function (response) {
                 console.log("error when calling getTranscription");
                 console.log(response);
+                setWaiting(false);
             });
         })
         .catch(function (response) {
             console.log("Error al subir el audio")
+            setWaiting(false);
         });
     })
     .catch(function (response) {
         console.log("error al crear archivo de mediaBlob");
+        setWaiting(false);
     });
     };
 
     const handleTextSubmission = () => {
+        setWaiting(true)
         axios({
             method: "post",
             url: `${BACKEND_URL}utterTextFromText`, // Change to REAL SERVER ADDRESS.
@@ -123,9 +129,11 @@ export const Input = () => {
                 handleHera(response['data']['text_for_client'])
                 setTopic(response['data']['topic'])
                 console.log(`topic: ${topic}`);
+                setWaiting(false);
             })
             .catch(function (response) {
                 console.log(response);
+                setWaiting(false);
             });
     };
 

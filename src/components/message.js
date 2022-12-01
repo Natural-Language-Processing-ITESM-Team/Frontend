@@ -3,7 +3,7 @@ import { ChatContext } from "../context/ChatContext";
 
 export const Message = () => {
 
-    const[message, setMessage, owner, setOwner] = useContext(ChatContext);
+    const[message, setMessage, owner, setOwner, topic, setTopic, waiting, setWaiting] = useContext(ChatContext);
     const today = new Date();
     const time = today.getHours() + ':' + today.getMinutes();
 
@@ -30,7 +30,18 @@ export const Message = () => {
                     </div>
                 </div>
             ))
+
         }
+        {waiting?
+            <div className="message">
+                <div className="messageInfo">
+                    <img src={CHATBOT_LOGO} alt="hera"/>
+                    <span>{time}</span>
+                </div>
+                <div className="messageContent">
+                    <p>waiting</p>
+                </div>
+            </div> : <div></div>}
         </>
     )
 }
