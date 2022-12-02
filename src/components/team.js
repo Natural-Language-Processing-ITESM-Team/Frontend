@@ -21,7 +21,8 @@ const teamContent = [
         description: 'Desarrollador Frontend'
     },
     {
-        img: 'https://planamayor.com.mx/wp-content/uploads/2021/02/pedrorodriguez-atizapan83.jpg',
+        //img: 'https://planamayor.com.mx/wp-content/uploads/2021/02/pedrorodriguez-atizapan83.jpg',
+        img: 'https://kinsta.com/es/wp-content/uploads/sites/8/2021/12/back-end-developer-1024x512.png',
         name: 'Rubén Sánchez',
         description: 'Desarrollador Frontend'
     },
