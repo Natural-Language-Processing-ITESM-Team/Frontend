@@ -1,6 +1,8 @@
-import React, { useEffect, useRef } from 'react'
-import '../general.scss'
-import { Link } from 'react-router-dom'
+import React, { useEffect, useRef } from 'react';
+import '../general.scss';
+import { Link } from 'react-router-dom';
+import HERAW from '../img/Hera-logo.png';
+import HERAB from '../img/HERA.png';
 
 const homeLinks=[
     {
@@ -72,8 +74,13 @@ export const Header = ({type, theme, toggleTheme}) =>{
             <div className='container'>
                 <div className='navWrapper'>
                     <Link to={'/'}>
-                        <div className='logo'>
-                            <h2>HERA</h2>
+                        <div className='logo'>{
+                            theme === 'light-theme' ? (
+                                <img src= {HERAB} alt='Hera Black Logo' />
+                            ) : (
+                                <img src= {HERAW} alt='Hera White Logo' />
+                            )
+                        }
                         </div>
                     </Link>
                     <div className='navigation' ref={menuRef} onClick={toggleMenu}>

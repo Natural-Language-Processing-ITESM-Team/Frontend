@@ -9,9 +9,11 @@
         justify-content: space-between;
 
         .logo{
-
-            h2{
-                color: #379cf6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            img{
+                width: 90px;
             }
         }
 
