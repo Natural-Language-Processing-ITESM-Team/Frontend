@@ -15,7 +15,7 @@ export const Hero = ({theme}) =>{
                         <p className="description">HERA es un conmutador de servicios de procesamiento de lenguaje natural que utiliza un modelo de clasificación de alto nivel para comprenderte y encontrar la mejor solución a tus dudas.</p>
                         <div className="heroBtn">
                             <Link to='/chat'><button className="primaryBtn">Chatea Ahora</button></Link>
-                            <button className="secondaryBtn">Repositorio</button>
+                            <a href="https://github.com/Natural-Language-Processing-ITESM-Team"><button className="secondaryBtn">Repositorio</button></a>
                         </div>
                     </div>
                     <div className="heroImg">
