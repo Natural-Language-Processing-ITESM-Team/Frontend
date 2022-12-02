@@ -7,64 +7,78 @@ import Acopho from '../img/acopho.jpeg';
 import EA from '../img/lalcosta.jpeg';
 import AGF from '../img/abrahamprroloco.jpeg';
 import JDHC from '../img/chicokawaii.jpeg';
+import EMC from '../img/EMC.jpeg';
+import HMMG from '../img/HMMG.jpeg';
+import LEGQ from '../img/LEGQ.jpeg';
+import RSM from '../img/pataata.jpeg';
 
 
 const teamContent = [
     {
         img: EMBM,
         name: 'Elisa Bonilla',
-        description: 'Desarrolladora Frontend'
+        description: 'Desarrolladora Frontend',
+        class: 'fit'
     },
     {
         img: CJAG,
         name: 'Carlos Ávila',
-        description: 'Desarrollador Frontend'
+        description: 'Desarrollador Frontend',
+        class: 'fit'
     },
     {
-        //img: 'https://planamayor.com.mx/wp-content/uploads/2021/02/pedrorodriguez-atizapan83.jpg',
-        img: 'https://kinsta.com/es/wp-content/uploads/sites/8/2021/12/back-end-developer-1024x512.png',
+        img: RSM,
         name: 'Rubén Sánchez',
-        description: 'Desarrollador Frontend'
+        description: 'Desarrollador Frontend',
+        class: ''
     },
     {
         img: JDA,
         name: 'Daniel Aranda',
-        description: 'Ingeniero de Nube'
+        description: 'Ingeniero de Nube',
+        class: ''
     },
     {
         img: Acopho,
         name: 'Luis Ferro',
-        description: 'Desarrollador Backend'
+        description: 'Desarrollador Backend',
+        class: ''
     },
     {
         img: EA,
         name: 'Eduardo Acosta',
-        description: 'Desarrollador Backend'
+        description: 'Desarrollador Backend',
+        class: ''
     },
     {
         img: AGF,
         name: 'Abraham Gil',
-        description: 'Ingeniero de ML'
+        description: 'Ingeniero de ML',
+        class: 'fit'
     },
     {
         img: JDHC,
         name: 'Joshua Hernández',
-        description: 'Analista de Datos'
+        description: 'Analista de Datos',
+        class: 'fit'
     },
     {
-        img: 'https://www.bbva.com/wp-content/uploads/2019/11/machine-learning-1024x629.jpg',
+        img: EMC,
         name: 'Enrique Maldonado',
-        description: 'Analista de Datos'
+        description: 'Analista de Datos',
+        class: 'fit'
     },
     {
-        img: 'https://kinsta.com/es/wp-content/uploads/sites/8/2021/12/back-end-developer-1024x512.png',
+        img: HMMG,
         name: 'Montserrat Marina',
-        description: 'Representante Legal'
+        description: 'Representante Legal',
+        class: ''
     },
     {
-        img: 'https://kinsta.com/es/wp-content/uploads/sites/8/2021/12/back-end-developer-1024x512.png',
+        img: LEGQ,
         name: 'Luis González',
-        description: 'Representante Legal'
+        description: 'Representante Legal',
+        class: ''
     },
 ]
 
@@ -82,7 +96,7 @@ export const Team = () => {
                         teamContent.map((item, index) => (
                             <div className='teamItem' key={index}>
                                 <div className='teamImg'>
-                                    <img src={item.img} alt={item.name}/>
+                                    <img src={item.img} alt={item.name} className={item.class}/>
                                 </div>
                                 <div className='teamDetails'>
                                     <h4>{item.name}</h4>

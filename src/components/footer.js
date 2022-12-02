@@ -3,46 +3,46 @@ import '../general.scss';
 
 const quickLinks1 = [
     {
-        path: '#',
-        display: 'Marketing'
+        path: 'https://www.facebook.com/profile.php?id=100087990786763',
+        display: 'Facebook'
+    },
+    {
+        path: 'https://api.whatsapp.com/send/?phone=5215525005791&text&type=phone_number&app_absent=0',
+        display: 'WhatsApp'
     },
     {
         path: '#',
-        display: 'Analytics'
-    },
-    {
-        path: '#',
-        display: 'Commerce'
+        display: 'LinkedIn'
     },
 ]
 
 const quickLinks2 = [
     {
         path: '#about',
-        display: 'About'
-    },
-    {
-        path: '#',
-        display: 'Job'
+        display: 'Nosotros'
     },
     {
         path: '#team',
-        display: 'Architecture'
+        display: 'Equipo'
+    },
+    {
+        path: '#service',
+        display: 'Aplicación'
     },
 ]
 
 const quickLinks3 = [
     {
-        path: '#',
-        display: 'Pricing'
+        path: 'https://aws.amazon.com/es/lex/',
+        display: 'Amazon'
     },
     {
-        path: '#',
-        display: 'Documentation'
+        path: 'https://www.ibm.com/mx-es/products/watson-assistant/docs-resources',
+        display: 'IBM'
     },
     {
-        path: '#',
-        display: 'Guides'
+        path: 'https://cloud.google.com/dialogflow',
+        display: 'Google'
     },
 ]
 
@@ -61,18 +61,18 @@ export const Footer = () => {
                     </div>
 
                     <div className="footerQuickLinks">
-                        <h3 className="quickLinksTitle">Navegación</h3>
+                        <h3 className="quickLinksTitle">Contacto</h3>
                         <ul className="quickLinks">
                             {
                                 quickLinks1.map((item, index) => (
-                                    <li className="quickLinkItem" key={index}><a href={item.path}>{item.display}</a></li>
+                                    <li className="quickLinkItem" key={index}><a href={item.path} target='_blank'>{item.display}</a></li>
                                 ))
                             }
                         </ul>
                     </div>
 
                     <div className="footerQuickLinks">
-                        <h3 className="quickLinksTitle">Soporte</h3>
+                        <h3 className="quickLinksTitle">Conócenos</h3>
                         <ul className="quickLinks">
                             {
                                 quickLinks2.map((item, index) => (
@@ -83,11 +83,11 @@ export const Footer = () => {
                     </div>
 
                     <div className="footerQuickLinks">
-                        <h3 className="quickLinksTitle">Compañía</h3>
+                        <h3 className="quickLinksTitle">Servicios</h3>
                         <ul className="quickLinks">
                             {
                                 quickLinks3.map((item, index) => (
-                                    <li className="quickLinkItem" key={index}><a href={item.path}>{item.display}</a></li>
+                                    <li className="quickLinkItem" key={index}><a href={item.path} target='_blank'>{item.display}</a></li>
                                 ))
                             }
                         </ul>
