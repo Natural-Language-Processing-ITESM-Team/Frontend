@@ -45,7 +45,7 @@ export const Powered = () => {
                     <div className="sponsors" key={index}>
                         <img src={item.img} alt="sp1"/>
                         <div className="sponsorInfo">
-                            <a href={item.link} target="_blank"><span>{item.name}</span></a>
+                            <a href={item.link} target="_blank"><span style={{color: "white"}}>{item.name}</span></a>
                         </div>
                     </div>
                 ))
